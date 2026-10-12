@@ -23,8 +23,11 @@ latex() { pdflatex -interaction=nonstopmode -halt-on-error "$@" > /dev/null; }
 
 echo "== paper"
 cd "$PAPER"
-latex main.tex
-latex main.tex
+rm -f main.aux main.out
+for run in 1 2 3 4; do
+  latex main.tex
+  grep -q "Rerun to get" main.log || break
+done
 if grep -q "Overfull\|Underfull\|undefined\|Rerun to get" main.log; then
   grep "Overfull\|Underfull\|undefined\|Rerun to get" main.log
   echo "build_paper.sh: fix the warnings above" >&2
