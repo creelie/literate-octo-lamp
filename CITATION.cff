@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "The minimum number of distinct abelian squares in a binary circular word"
+type: software
+authors:
+  - family-names: Bhattacharjee
+    given-names: Deep
+    orcid: "https://orcid.org/0000-0003-0466-750X"
+    affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
+    email: d.bhattacharjee@erl-forschung.de
+version: 1.0.0
+date-released: 2026-10-12
+license: MIT
+repository-code: "https://github.com/creelie/literate-octo-lamp"
+keywords:
+  - abelian square
+  - circular word
+  - Parikh vector
+  - combinatorics on words
+  - Lean 4
+abstract: >-
+  Every binary circular word of length n contains at least floor((n-1)/2)
+  distinct abelian squares, and the words attaining this bound are determined.
+  This settles Conjecture 0.6 of Simpson: its odd case holds, and in its even
+  case the list of extremal words misses (ab)^{n/2} for n = 2 (mod 4),
+  n >= 6. The proofs are formalized in Lean 4.
+references:
+  - type: article
+    title: "Solved and unsolved problems about abelian squares"
+    authors:
+      - family-names: Simpson
+        given-names: Jamie
+    year: 2018
+    url: "https://arxiv.org/abs/1802.04481"
+    notes: "arXiv:1802.04481"
