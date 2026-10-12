@@ -25,7 +25,7 @@ misses (ab)^{n/2} for n = 2 (mod 4), n >= 6.
 
 ## Length and format
 
-- The manuscript is 10 pages in the `elsarticle` preprint layout (12 pt, single
+- The manuscript is 11 pages in the `elsarticle` preprint layout (12 pt, single
   column), with a three-sentence abstract.
 - Elsevier accepts a first submission as a single PDF
   (`dist/simpson-abelian-squares.pdf`); after acceptance the LaTeX source and
