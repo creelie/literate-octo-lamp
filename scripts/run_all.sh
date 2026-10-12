@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# run_all.sh -- re-run every check of "Distinct abelian squares in binary circular words".
+# run_all.sh -- re-run every check of "The minimum number of distinct abelian squares in a
+# binary circular word".
 #
 #   C       verification/c/circsq.c            every binary word of length n <= 22: the minimum
 #                                              floor((n-1)/2) and the list of words attaining it

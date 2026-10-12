@@ -7,16 +7,16 @@
 # of length 2m, and D = sum |S_m|. The column C_l(k) is the set of m with (l, k) in Q_m.
 #
 # Checked for every word:
-#   Lemma 2.1  |Q_m| <= |S_m| for 2m <= n
-#   Lemma 2.2  (l, k) in Q_m  =>  (l, t_l - k) in Q_{n-m}
-#   Lemma 2.3  C_l(k) is nonempty for 1 <= k < t_l
-#   Theorem 2.4  D >= floor((n-1)/2)
+#   Lemma 2.2  |Q_m| <= |S_m| for 2m <= n
+#   Lemma 2.3  (l, k) in Q_m  =>  (l, t_l - k) in Q_{n-m}
+#   Lemma 2.5  C_l(k) is nonempty for 1 <= k < t_l
+#   Theorem 2.6  D >= floor((n-1)/2)
 #   Theorem 3.1  if l is tight (each column has one element) and the word is rigid (|S_m| = |Q_m|
 #                for 2m <= n), then the word is a conjugate of l^t lbar^(n-t) with t odd or t = n,
 #                or n = 2t and the word is a conjugate of (l lbar)^(n/2)
 #   Lemma 4.2  in a conjugate of l^alpha lbar^(2h), alpha >= 3, the column C_lbar(h) contains
 #                h, h+1 and n-h
-#   Theorem 4.3  D = floor((n-1)/2) exactly on the family of the paper
+#   Theorem 1.1  D = floor((n-1)/2) exactly on the family of the paper
 
 const NMAX = 16
 
@@ -83,18 +83,18 @@ function main()
             Q, S = signatures(w, n)
             t = Dict(1 => count_ones(w, 0, n, n), 0 => n - count_ones(w, 0, n, n))
             D = n >= 2 ? sum(length(S[m]) for m in 1:n÷2) : 0
-            # Lemma 2.1
-            all(length(Q[m]) <= length(S[m]) for m in 1:n÷2) || (nfail += 1)
             # Lemma 2.2
+            all(length(Q[m]) <= length(S[m]) for m in 1:n÷2) || (nfail += 1)
+            # Lemma 2.3
             for m in 1:n-1, (l, k) in Q[m]
                 (l, t[l] - k) in Q[n - m] || (nfail += 1)
             end
             # columns
             col(l, k) = [m for m in 1:n-1 if (l, k) in Q[m]]
             for l in (0, 1), k in 1:t[l]-1
-                isempty(col(l, k)) && (nfail += 1)          # Lemma 2.3
+                isempty(col(l, k)) && (nfail += 1)          # Lemma 2.5
             end
-            # Theorem 2.4
+            # Theorem 2.6
             D >= (n - 1) ÷ 2 || (nfail += 1)
             # Theorem 3.1
             rigid = all(length(Q[m]) == length(S[m]) for m in 1:n÷2)
@@ -118,7 +118,7 @@ function main()
                     (h in c && (h + 1) in c && (n - h) in c) || (nfail += 1)
                 end
             end
-            # Theorem 4.3
+            # Theorem 1.1
             ((D == (n - 1) ÷ 2) == (w in fam)) || (nfail += 1)
         end
         println("n=$(lpad(n, 2))  words=$(lpad(1 << n, 6))  tight-and-rigid cases=$(lpad(ntight, 5))  ",
