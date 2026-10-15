@@ -7,7 +7,7 @@ and Ushashi Bhattacharya (Formerly, National Taiwan University, Taipei 106319,
 Taiwan; rai.bhattacharya.in@gmail.com; ORCID 0009-0002-2254-3914).
 
 - Paper: [`preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf`](preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf)
-- Lean 4 formalization on Zenodo, all versions: doi:[10.5281/zenodo.23313258](https://doi.org/10.5281/zenodo.23313258)
+- Lean 4 formalization on Zenodo: doi:[10.5281/zenodo.23384530](https://doi.org/10.5281/zenodo.23384530) (release v2.0.0; all versions: doi:[10.5281/zenodo.23313258](https://doi.org/10.5281/zenodo.23313258))
 - Master zip: [`MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip`](https://github.com/creelie/literate-octo-lamp/raw/main/MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip)
 - Target journal: Theoretical Computer Science (`journal/JOURNAL.md`)
 - MSC 2020: Primary 68R15; Secondary 05A05, 68V15
@@ -111,7 +111,7 @@ zip and tar; `figures/make_figures.sh` redraws the figures).
 
 | Release | Zenodo DOI |
 |---|---|
-| v2.0.0 (two authors, journal format) | recorded here once minted |
+| v2.0.0 (two authors, journal format) | [10.5281/zenodo.23384530](https://doi.org/10.5281/zenodo.23384530) |
 | v1.0.1 | [10.5281/zenodo.23313541](https://doi.org/10.5281/zenodo.23313541) |
 | v1.0.0 | [10.5281/zenodo.23313259](https://doi.org/10.5281/zenodo.23313259) |
 | all versions | [10.5281/zenodo.23313258](https://doi.org/10.5281/zenodo.23313258) |
