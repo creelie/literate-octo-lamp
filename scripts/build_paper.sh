@@ -1,28 +1,31 @@
 #!/usr/bin/env bash
-# build_paper.sh -- build the paper and the release files into dist/.
+# build_paper.sh -- build the paper and the release files.
 #
-#   dist/simpson-abelian-squares.pdf              the compiled paper
-#   dist/simpson-abelian-squares-tex.zip          LaTeX source (main.tex, elsarticle.cls)
-#   dist/simpson-abelian-squares-arxiv.tar.gz     the same source, ready for arXiv
-#   dist/MasterSimpsonCircularAbelianSquaresZip.zip
-#                                                 every file of the repository with the three
-#                                                 files above, in the folder
-#                                                 MasterSimpsonCircularAbelianSquaresZip/
+#   dist/SimpsonCircularAbelianSquares_final2.pdf             the paper
+#   dist/SimpsonCircularAbelianSquares_final2-tex.zip         LaTeX source with the figures as PNG
+#   dist/SimpsonCircularAbelianSquares_final2-arxiv.tar.gz    the same source as an arXiv tarball
+#   preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf
+#                                                             the paper (the only file there)
+#   MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip   every tracked file with dist/ and
+#                                                             the preprint folder
 #
 # Needs pdflatex, git, zip and tar.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PAPER="$ROOT/paper"
-DIST="$ROOT/dist"
-NAME=simpson-abelian-squares
-MASTER=MasterSimpsonCircularAbelianSquaresZip
-mkdir -p "$DIST"
+cd "$ROOT"
+for t in pdflatex zip tar git; do
+  command -v "$t" >/dev/null || { echo "missing tool: $t" >&2; exit 2; }
+done
+
+NAME=SimpsonCircularAbelianSquares
+PRE=preprint$NAME
+MASTER=Master${NAME}_masterzipfinal2.zip
 
 latex() { pdflatex -interaction=nonstopmode -halt-on-error "$@" > /dev/null; }
 
 echo "== paper"
-cd "$PAPER"
+cd "$ROOT/paper"
 rm -f main.aux main.out
 for run in 1 2 3 4; do
   latex main.tex
@@ -34,36 +37,37 @@ if grep -q "Overfull\|Underfull\|undefined\|Rerun to get" main.log; then
   exit 1
 fi
 rm -f main.aux main.log main.out
-cp main.pdf "$DIST/$NAME.pdf"
+cd "$ROOT"
+
+rm -rf dist
+mkdir -p dist "$PRE"
+cp paper/main.pdf "dist/${NAME}_final2.pdf"
+cp paper/main.pdf "$PRE/$NAME.pdf"
 
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 
-echo "== tex.zip"
-mkdir -p "$STAGE/$NAME"
-cp main.tex elsarticle.cls "$STAGE/$NAME/"
-rm -f "$DIST/$NAME-tex.zip"
-( cd "$STAGE" && zip -qrX "$DIST/$NAME-tex.zip" "$NAME" )
+echo "== tex zip and arXiv tarball"
+SRC="$STAGE/${NAME}_final2-tex"
+mkdir -p "$SRC/figures"
+cp paper/main.tex paper/elsarticle.cls "$SRC/"
+cp paper/figures/*.png "$SRC/figures/"
+( cd "$STAGE" && zip -qrX "${NAME}_final2-tex.zip" "${NAME}_final2-tex" )
+mv "$STAGE/${NAME}_final2-tex.zip" dist/
+tar -czf "dist/${NAME}_final2-arxiv.tar.gz" -C "$SRC" main.tex elsarticle.cls figures
 
-echo "== arXiv tarball"
-mkdir -p "$STAGE/arxiv"
-cp main.tex elsarticle.cls "$STAGE/arxiv/"
-( cd "$STAGE/arxiv" && latex main.tex && latex main.tex && rm -f main.aux main.log main.out main.pdf )
-tar -czf "$DIST/$NAME-arxiv.tar.gz" -C "$STAGE/arxiv" main.tex elsarticle.cls
-
-echo "== $MASTER.zip"
-cd "$ROOT"
-mkdir -p "$STAGE/master/$MASTER"
-git ls-files --cached --others --exclude-standard -z \
-  | grep -zv "^dist/$MASTER.zip\$" \
+echo "== $MASTER"
+mkdir -p "$STAGE/master/Master$NAME"
+git ls-files -z | grep -zvE "^(dist/|$PRE/|$MASTER\$)" \
   | while IFS= read -r -d '' f; do
       [ -e "$f" ] || continue
-      mkdir -p "$STAGE/master/$MASTER/$(dirname "$f")"
-      cp -p "$f" "$STAGE/master/$MASTER/$f"
+      mkdir -p "$STAGE/master/Master$NAME/$(dirname "$f")"
+      cp -p "$f" "$STAGE/master/Master$NAME/$f"
     done
-mkdir -p "$STAGE/master/$MASTER/dist"
-cp "$DIST/$NAME.pdf" "$DIST/$NAME-tex.zip" "$DIST/$NAME-arxiv.tar.gz" "$STAGE/master/$MASTER/dist/"
-rm -f "$DIST/$MASTER.zip"
-( cd "$STAGE/master" && zip -qrX "$DIST/$MASTER.zip" "$MASTER" )
+mkdir -p "$STAGE/master/Master$NAME/dist" "$STAGE/master/Master$NAME/$PRE"
+cp dist/* "$STAGE/master/Master$NAME/dist/"
+cp "$PRE/$NAME.pdf" "$STAGE/master/Master$NAME/$PRE/"
+rm -f "$MASTER"
+( cd "$STAGE/master" && zip -qrX "$ROOT/$MASTER" "Master$NAME" )
 
-ls -l "$DIST"
+echo "built: $(ls dist | tr '\n' ' ')$PRE/$NAME.pdf $MASTER"
