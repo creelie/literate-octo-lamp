@@ -4,10 +4,14 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 
 \journal{Theoretical Computer Science}
+
+\newcommand{\zenodoID}{10.5281/zenodo.0000000}
+\newcommand{\preprintURL}{https://github.com/creelie/literate-octo-lamp/blob/main/preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -28,21 +32,32 @@
 
 \title{The minimum number of distinct abelian squares in a binary circular word}
 
-\author{Deep Bhattacharjee}
+\author[egspl]{Deep Bhattacharjee\corref{cor1}\fnref{orcid1}}
+\ead{itsdeep@live.com}
 \ead{d.bhattacharjee@erl-forschung.de}
-\affiliation{organization={Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL)},
+\fntext[orcid1]{ORCID: \url{https://orcid.org/0000-0003-0466-750X}}
+\cortext[cor1]{Corresponding author.}
+\affiliation[egspl]{organization={Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL)},
             city={Bhubaneswar},
             postcode={751030},
             state={Odisha},
             country={India}}
 
+\author[ntu]{Ushashi Bhattacharya\fnref{orcid2}}
+\ead{rai.bhattacharya.in@gmail.com}
+\fntext[orcid2]{ORCID: \url{https://orcid.org/0009-0002-2254-3914}}
+\affiliation[ntu]{organization={Formerly, National Taiwan University},
+            city={Taipei},
+            postcode={106319},
+            country={Taiwan}}
+
 \begin{abstract}
-Every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine the words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$. The proofs are formalized in Lean~4.
+We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$.
 \end{abstract}
 
 \begin{keyword}
 abelian square \sep circular word \sep Parikh vector \sep combinatorics on words
-\MSC[2020] 68R15 \sep 05A05
+\MSC[2020] Primary 68R15 \sep Secondary 05A05 \sep 68V15
 \end{keyword}
 
 \end{frontmatter}
@@ -79,7 +94,13 @@ Part (a) of Conjecture~0.6 of \cite{Sim18} holds. In part (b) the minimum $(n-2)
 For $n\ge 4$ the word $(ab)^{n/2}$ has $n/2\ge 2$ maximal blocks of $a$, while every conjugate of $a^kb^{n-k}$ or $b^ka^{n-k}$ has at most one maximal block of $a$ when read cyclically. For $n=2$, $(ab)^{1}=a^1b^1$. The rest is Theorem~\ref{thm:main}.
 \end{proof}
 
-For example, the abelian squares among the factors of the circular word $ababab$ are $abab$ and $baba$, so $D(ababab)=2=(6-2)/2$. Counting conjugates, the number of words of length $n$ with $D(w)=\fl{(n-1)/2}$ is $2n+2$ for odd $n\ge 3$, and $n^2/2$ for even $n$, plus $2$ when $n\equiv 2\pmod 4$ and $n\ge 6$.
+For example, the abelian squares among the factors of the circular word $ababab$ are $abab$ and $baba$, so $D(ababab)=2=(6-2)/2$. Counting conjugates, the number of words of length $n$ with $D(w)=\fl{(n-1)/2}$ is $2n+2$ for odd $n\ge 3$, and $n^2/2$ for even $n$, plus $2$ when $n\equiv 2\pmod 4$ and $n\ge 6$. Figure~\ref{fig:extremal} shows the extremal words of length $6$ up to conjugation and complement.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_extremal.png}
+\caption{The extremal circular words of length $6$, read clockwise from the top, up to complement. The three words on the left are those of Conjecture~0.6(b); the alternating word on the right also has exactly two distinct abelian squares.}\label{fig:extremal}
+\end{figure}
 
 Section~\ref{sec:lower} proves the lower bound by a double count of the abelian squares of half-length $m$ and $n-m$. Section~\ref{sec:tight} describes the words in which this count is tight for one letter, and Section~\ref{sec:proof} completes the proof. Section~\ref{sec:lean} describes the Lean~4 formalization.
 
@@ -114,6 +135,12 @@ Let $1\le m\le n-1$. If $(\ell,k)\in Q_m$, then $(\ell,t_\ell-k)\in Q_{n-m}$. He
 Let $W(i,m)$ be a square with $x_{i+m-1}=\ell$ and $c_\ell(i,m)=c_\ell(i+m,m)=k$. Consider $W(i+2m,n-m)$. Its left half $[i+2m,i+m+n)$ and the right half $[i+m,i+2m)$ of $W(i,m)$ together form the window $[i+m,i+m+n)$, so the left half contains $t_\ell-k$ letters $\ell$. Its right half $[i+m+n,i+2n)$ is the translate by $n$ of $[i+m,i+n)$, which together with $[i,i+m)$ forms a window of length $n$; so it also contains $t_\ell-k$ letters $\ell$. The last letter of the left half is $x_{i+m+n-1}=x_{i+m-1}=\ell$. Thus $(\ell,t_\ell-k)\in Q_{n-m}$. The map $(\ell,k)\mapsto(\ell,t_\ell-k)$ is injective and is its own inverse, so $|Q_m|=|Q_{n-m}|$. Finally $k\ge 1$ because the left half ends with $\ell$, and $t_\ell-k\ge 1$ by the same argument applied to $W(i+2m,n-m)$.
 \end{proof}
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_mirror.png}
+\caption{The proof of Lemma~\ref{lem:mirror}. The two halves of the square $W(i+2m,n-m)$ are the complements of $v$ and of $u$ in the circle, so each contains $t_\ell-k$ letters $\ell$, and the left one ends at the last letter of $u$.}\label{fig:mirror}
+\end{figure}
+
 If $t_\ell\ge 1$, let $(p_j)_{j\in\Z}$ be the increasing enumeration of $\{s\in\Z: x_s=\ell\}$; then $p_{j+t_\ell}=p_j+n$. For $j\in\Z$ and $1\le k<t_\ell$ let $I_j(k)$ be the interval of integers $m$ with
 \begin{equation}\label{eq:interval}
 \max(p_{j+k}-p_{j+1}+1,\ p_{j+2k}-p_{j+k})\ \le\ m\ \le\ \min(p_{j+k}-p_j,\ p_{j+2k+1}-p_{j+k}-1).
@@ -126,6 +153,12 @@ Let $1\le k<t_\ell$ and $m\in I_j(k)$. Then $W(p_{j+k}+1-m,m)$ is a square whose
 \begin{proof}
 Let $i=p_{j+k}+1-m$. By \eqref{eq:interval}, $p_j<i\le p_{j+1}$, so the left half $[i,p_{j+k}]$ contains exactly the occurrences $p_{j+1},\dots,p_{j+k}$ and ends with $x_{p_{j+k}}=\ell$. Also $p_{j+2k}\le p_{j+k}+m<p_{j+2k+1}$, so the right half $[p_{j+k}+1,p_{j+k}+m]$ contains exactly $p_{j+k+1},\dots,p_{j+2k}$. Both halves contain $k$ letters $\ell$. Since $m\ge 1$ and $k<t_\ell$, we have $1\le m<n$.
 \end{proof}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_interval.png}
+\caption{The square of Lemma~\ref{lem:interval} for $k=2$. The occurrences of $\ell$ are the dots; the left half ends at $p_{j+k}$ and the right half stops before $p_{j+2k+1}$.}\label{fig:interval}
+\end{figure}
 
 \begin{lemma}\label{lem:column}
 For every letter $\ell$ and $1\le k\le t_\ell-1$, the column $C_\ell(k)$ is nonempty.
@@ -242,22 +275,23 @@ Conversely let $D(w)=\fl{(n-1)/2}$. By Proposition~\ref{prop:equality}, $w$ is r
 
 \section{Formal verification}\label{sec:lean}
 
-Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20} (Lean and Mathlib version~4.34.1). The source, thirteen files with $2230$ lines, is in the directory \texttt{verification/lean} of the archive described under Data availability. The definitions in \texttt{Circ/Statement.lean} follow Section~\ref{sec:intro} literally, with $a$ and $b$ encoded as \texttt{true} and \texttt{false}: \texttt{IsAbelianSquare s} states that $s=uv$ with $u\ne\varepsilon$ and $|u|_c=|v|_c$ for each letter $c$; \texttt{factors w} is the set of words \texttt{(w.rotate i).take L} with $0\le i<n$ and $1\le L\le n$; \texttt{numDistinctAbelianSquares w} is the number of its elements that are abelian squares; \texttt{IsConj w u} states that $w$ is a rotation of $u$; \texttt{compl}, \texttt{blk k n} and \texttt{alt n} are the complement, $a^kb^{n-k}$ and $abab\cdots$ of length $n$. The file \texttt{Circ/Simpson.lean} proves
-\begin{itemize}
-\item \texttt{min\_distinct}: for $n\ge 1$, the least value of $D(w)$ over the words $w$ of length $n$ is $\fl{(n-1)/2}$;
-\item \texttt{extremal\_odd}, \texttt{extremal\_even}: the characterization of the words attaining it, as in Theorem~\ref{thm:main};
-\item \texttt{conjectureA}, \texttt{not\_conjectureB}: the proposition \texttt{ConjectureA}, which states Conjecture~0.6(a) of \cite{Sim18}, holds, and the proposition \texttt{ConjectureB}, which states Conjecture~0.6(b), is false;
-\item \texttt{counterexample}: $D(ababab)=2$ and $ababab$ is not a conjugate of \texttt{blk k 6} or its complement for any $k$.
-\end{itemize}
-The command \texttt{lake build} compiles the project, and \verb|#print axioms| reports \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, the axioms of Lean's logic, for each of these theorems; there is no \texttt{sorry} and no added axiom.
+Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20}, version~4.34.1, and the formal proofs are checked by the Lean kernel. Words are lists over a two-letter alphabet, and the definitions follow Section~\ref{sec:intro} literally: an abelian square is a word $uv$ with $u$ nonempty and the same number of each letter in $u$ and $v$; the factors of a circular word $w$ of length $n$ are the prefixes of length $L$, $1\le L\le n$, of its $n$ rotations; and $D(w)$ is the number of distinct factors that are abelian squares. The formal statements are the following. For every $n\ge 1$ the least value of $D$ on the words of length $n$ is $\fl{(n-1)/2}$. A word of odd length, and a word of even length, attains this value exactly when it is a conjugate of one of the words in (a), respectively (b), of Theorem~\ref{thm:main}. Part~(a) of Conjecture~0.6 holds, and part~(b), stated literally, is false. Finally $D(ababab)=2$, and $ababab$ is not a conjugate of $a^kb^{6-k}$ or of its complement for any $k$. The proofs depend only on the axioms of Lean's logic, namely propositional extensionality, choice and the soundness of quotients; they contain no unproved step and add no axiom.
 
-The archive also contains independent programs. A C program computes $D(w)$ for all words of length $n\le 22$ and compares the minimum and the extremal words with Theorem~\ref{thm:main}, the extremal family being generated from its description; a C\texttt{++} program does the same on one word per necklace for $n\le 28$. A Python program computes $D(w)$ for $n\le 12$ from the definitions (all rotations, all factorizations $uv$, Parikh vectors) and checks Conjecture~0.6(a), the failure of (b) exactly for $n\equiv 2\pmod 4$, $n\ge 6$, and Theorem~\ref{thm:main}. A Julia program checks Lemmas~\ref{lem:QS}, \ref{lem:mirror}, \ref{lem:column}, Theorem~\ref{thm:lower}, Theorem~\ref{thm:classify} and Lemma~\ref{lem:fat} on every word of length $n\le 16$, and a Bash script checks Theorem~\ref{thm:main} for $n\le 10$ in shell integer arithmetic. A shell script runs the Lean build, the axiom check and all programs.
+Independent computations confirm Theorem~\ref{thm:main} on every binary circular word of length at most $22$ and on one word of each necklace class up to length $28$, and they confirm each lemma of Sections~\ref{sec:lower} and~\ref{sec:tight} on every word of length at most $16$.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work the author used Claude Code (Anthropic) in order to develop the proof, write the Lean formalization and the verification programs, and draft the manuscript. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
+During the preparation of this work the authors used Claude (Anthropic) in order to assist with the proofs, the Lean formalization, the computations and the preparation of the manuscript. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
 
 \section*{Data availability}
-The repository \url{https://github.com/creelie/literate-octo-lamp} contains the Lean~4 formalization, the verification programs and the shell script that runs them. It is archived on Zenodo: all versions under \href{https://doi.org/10.5281/zenodo.23313258}{\nolinkurl{doi:10.5281/zenodo.23313258}}, and release v1.0.0 under \href{https://doi.org/10.5281/zenodo.23313259}{\nolinkurl{doi:10.5281/zenodo.23313259}}.
+\begingroup\raggedright
+Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper is archived at Zenodo, doi:\href{https://doi.org/\zenodoID}{\zenodoID}. The paper is available at \url{\preprintURL}.\par
+\endgroup
+
+\section*{Competing interests}
+None.
+
+\section*{Funding}
+None.
 
 \begin{thebibliography}{8}
 

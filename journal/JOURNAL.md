@@ -25,22 +25,25 @@ misses (ab)^{n/2} for n = 2 (mod 4), n >= 6.
 
 ## Length and format
 
-- The manuscript is 11 pages in the `elsarticle` preprint layout (12 pt, single
-  column), with a three-sentence abstract.
+- The manuscript is 12 pages in the `elsarticle` preprint layout (12 pt, single
+  column), with a two-sentence abstract and three schematic figures.
+- Authors: Deep Bhattacharjee (corresponding author) and Ushashi Bhattacharya,
+  with affiliations, emails and ORCID iDs.
 - Elsevier accepts a first submission as a single PDF
-  (`dist/simpson-abelian-squares.pdf`); after acceptance the LaTeX source and
-  the class file are uploaded. `dist/simpson-abelian-squares-tex.zip` and the
-  arXiv tarball `dist/simpson-abelian-squares-arxiv.tar.gz` contain exactly
-  these two files; the references are in the source (`thebibliography`), so no
-  `.bib` or `.bbl` file is needed.
-- Required front matter, all present: title, author with address and email,
-  abstract, keywords, MSC 2020 codes (68R15, 05A05).
+  (`dist/SimpsonCircularAbelianSquares_final2.pdf`); after acceptance the LaTeX
+  source, the class file and the figures are uploaded.
+  `dist/SimpsonCircularAbelianSquares_final2-tex.zip` and the arXiv tarball
+  contain `main.tex`, `elsarticle.cls` and `figures/*.png`; the references are
+  in the source (`thebibliography`), so no `.bib` or `.bbl` file is needed.
+- Required front matter, all present: title, authors with addresses and
+  emails, abstract, keywords, MSC 2020 codes (Primary 68R15; Secondary 05A05,
+  68V15).
+- The paper ends with the AI declaration, data availability, competing
+  interests (none) and funding (none) statements; Editorial Manager asks for
+  the last two again on the submission form.
 - The journal's guide for authors page returned HTTP 403 to the session that
   prepared this file, so any journal-specific page limit, abstract length limit
   or highlights requirement was not read; check the guide before submitting.
-- Editorial Manager asks at submission for a declaration of competing
-  interests and for funding information; these are filled in by the author on
-  the submission form.
 
 ## Policy on AI assistance (Elsevier generative AI policy for journals)
 
@@ -52,7 +55,7 @@ misses (ab)^{n/2} for n = 2 (mod 4), n >= 6.
   `paper/main.tex`.
 - Use of AI tools in the research process is described in the paper;
   Section 5 (Formal verification) states how the result was checked.
-- The author remains responsible for checking all AI-generated output,
+- The authors remain responsible for checking all AI-generated output,
   including references. Every DOI in the bibliography was checked against its
   Crossref record, and the statement of Conjecture 0.6 against the arXiv
   source of Simpson's paper.

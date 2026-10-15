@@ -1,13 +1,19 @@
 {
   "title": "The minimum number of distinct abelian squares in a binary circular word: paper, Lean 4 formalization and verification code",
-  "description": "<p>Every binary circular word of length n contains at least floor((n-1)/2) distinct abelian squares, and the words attaining this bound are the conjugates of a^n, b^n, a^{n-1}b, b^{n-1}a for odd n, and of a^k b^{n-k} with k odd, together with (ab)^{n/2} when n = 2 (mod 4), for even n. This settles Conjecture 0.6 of J. Simpson, Solved and unsolved problems about abelian squares (arXiv:1802.04481): part (a) holds, and the list of extremal words in part (b) misses (ab)^{n/2} for n = 2 (mod 4), n &gt;= 6.</p><p><code>paper/</code> holds the LaTeX source in the Elsevier elsarticle template and the compiled PDF; <code>dist/</code> holds the PDF, the LaTeX source zip, the arXiv tarball and <code>MasterSimpsonCircularAbelianSquaresZip.zip</code> with every file of the repository. <code>verification/lean/</code> is a Lean 4 and Mathlib formalization of the theorem (13 files); its six main theorems depend only on the axioms propext, Classical.choice and Quot.sound. <code>verification/</code> also contains independent checks in C (every word of length at most 22), C++ (every necklace of length at most 28), Python, Julia and Bash, and <code>scripts/run_all.sh</code> runs the Lean build, the axiom check and all programs.</p>",
+  "description": "<p>Every binary circular word of length n contains at least floor((n-1)/2) distinct abelian squares, and the words attaining this bound are the conjugates of a^n, b^n, a^{n-1}b, b^{n-1}a for odd n, and of a^k b^{n-k} with k odd, together with (ab)^{n/2} when n = 2 (mod 4), for even n. This settles Conjecture 0.6 of J. Simpson, Solved and unsolved problems about abelian squares (arXiv:1802.04481): part (a) holds, and the list of extremal words in part (b) misses (ab)^{n/2} for n = 2 (mod 4), n &gt;= 6.</p><p><code>preprintSimpsonCircularAbelianSquares/</code> holds the paper as a PDF; <code>paper/</code> holds the LaTeX source in the Elsevier elsarticle template with its figures; <code>dist/</code> holds the PDF, the LaTeX source zip and the arXiv tarball, and <code>MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip</code> holds every file of the repository. <code>verification/lean/</code> is a Lean 4 and Mathlib formalization of the theorem (13 files); its six main theorems depend only on the axioms propext, Classical.choice and Quot.sound. <code>verification/</code> also contains independent checks in C (every word of length at most 22), C++ (every necklace of length at most 28), Python, Julia and Bash, and <code>scripts/run_all.sh</code> runs the Lean build, the axiom check and all programs.</p>",
   "upload_type": "software",
   "license": "mit",
   "access_right": "open",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
-      "orcid": "0000-0003-0466-750X"
+      "orcid": "0000-0003-0466-750X",
+      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
+    },
+    {
+      "name": "Bhattacharya, Ushashi",
+      "orcid": "0009-0002-2254-3914",
+      "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
   "keywords": [
@@ -24,5 +30,6 @@
       "scheme": "arxiv"
     }
   ],
-  "language": "eng"
+  "language": "eng",
+  "version": "2.0.0"
 }
