@@ -1,8 +1,8 @@
-**The minimum number of distinct abelian squares in a binary circular word**, by Deep Bhattacharjee (corresponding author) and Ushashi Bhattacharya.
+**The minimum number of distinct abelian squares in a binary circular word**, by Deep Bhattacharjee.
 
 We prove that every binary circular word of length n contains at least ⌊(n−1)/2⌋ distinct abelian squares, and we determine all words attaining this bound. This settles Conjecture 0.6 of J. Simpson ([arXiv:1802.04481](https://arxiv.org/abs/1802.04481)): part (a) holds, and the list of extremal words in part (b) misses (ab)^{n/2} for n ≡ 2 (mod 4), n ≥ 6 (for example D(ababab) = 2).
 
-Version 2.0.0 adds the second author and the journal format for Theoretical Computer Science: MSC 2020 codes (Primary 68R15; Secondary 05A05, 68V15), three schematic figures, and the data availability, competing interests and funding statements. The mathematics is that of v1.0.0.
+Version 2.1.0 makes Deep Bhattacharjee the sole author and cites this release in the data availability statement. Version 2.0.0 added the journal format for Theoretical Computer Science: MSC 2020 codes (Primary 68R15; Secondary 05A05, 68V15), three schematic figures, and the data availability, competing interests and funding statements. The mathematics is that of v1.0.0.
 
 | Step | Content |
 |---|---|

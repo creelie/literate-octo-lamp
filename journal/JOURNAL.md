@@ -27,16 +27,16 @@ misses (ab)^{n/2} for n = 2 (mod 4), n >= 6.
 
 - The manuscript is 12 pages in the `elsarticle` preprint layout (12 pt, single
   column), with a two-sentence abstract and three schematic figures.
-- Authors: Deep Bhattacharjee (corresponding author) and Ushashi Bhattacharya,
-  with affiliations, emails and ORCID iDs.
+- Author: Deep Bhattacharjee (sole and corresponding author), with
+  affiliation, email and ORCID iD.
 - Elsevier accepts a first submission as a single PDF
   (`dist/SimpsonCircularAbelianSquares_final2.pdf`); after acceptance the LaTeX
   source, the class file and the figures are uploaded.
   `dist/SimpsonCircularAbelianSquares_final2-tex.zip` and the arXiv tarball
   contain `main.tex`, `elsarticle.cls` and `figures/*.png`; the references are
   in the source (`thebibliography`), so no `.bib` or `.bbl` file is needed.
-- Required front matter, all present: title, authors with addresses and
-  emails, abstract, keywords, MSC 2020 codes (Primary 68R15; Secondary 05A05,
+- Required front matter, all present: title, author with address and
+  email, abstract, keywords, MSC 2020 codes (Primary 68R15; Secondary 05A05,
   68V15).
 - The paper ends with the AI declaration, data availability, competing
   interests (none) and funding (none) statements; Editorial Manager asks for
@@ -55,7 +55,7 @@ misses (ab)^{n/2} for n = 2 (mod 4), n >= 6.
   `paper/main.tex`.
 - Use of AI tools in the research process is described in the paper;
   Section 5 (Formal verification) states how the result was checked.
-- The authors remain responsible for checking all AI-generated output,
+- The author remains responsible for checking all AI-generated output,
   including references. Every DOI in the bibliography was checked against its
   Crossref record, and the statement of Conjecture 0.6 against the arXiv
   source of Simpson's paper.

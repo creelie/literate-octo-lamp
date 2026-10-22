@@ -10,8 +10,7 @@
 
 \journal{Theoretical Computer Science}
 
-\newcommand{\zenodoID}{10.5281/zenodo.23384530}
-\newcommand{\preprintURL}{https://github.com/creelie/literate-octo-lamp/blob/main/preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf}
+\newcommand{\releaseURL}{https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -43,13 +42,6 @@
             state={Odisha},
             country={India}}
 
-\author[ntu]{Ushashi Bhattacharya\fnref{orcid2}}
-\ead{rai.bhattacharya.in@gmail.com}
-\fntext[orcid2]{ORCID: \url{https://orcid.org/0009-0002-2254-3914}}
-\affiliation[ntu]{organization={Formerly, National Taiwan University},
-            city={Taipei},
-            postcode={106319},
-            country={Taiwan}}
 
 \begin{abstract}
 We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$.
@@ -280,11 +272,11 @@ Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 
 Independent computations confirm Theorem~\ref{thm:main} on every binary circular word of length at most $22$ and on one word of each necklace class up to length $28$, and they confirm each lemma of Sections~\ref{sec:lower} and~\ref{sec:tight} on every word of length at most $16$.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work the authors used Claude (Anthropic) in order to assist with the proofs, the Lean formalization, the computations and the preparation of the manuscript. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
+During the preparation of this work the author used Claude (Anthropic) in order to assist with the proofs, the Lean formalization, the computations and the preparation of the manuscript. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
 
 \section*{Data availability}
 \begingroup\raggedright
-Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper is archived at Zenodo, doi:\href{https://doi.org/\zenodoID}{\zenodoID}. The paper is available at \url{\preprintURL}.\par
+Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.1.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}.\par
 \endgroup
 
 \section*{Competing interests}

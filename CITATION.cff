@@ -8,27 +8,9 @@ authors:
     orcid: "https://orcid.org/0000-0003-0466-750X"
     affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
     email: itsdeep@live.com
-  - family-names: Bhattacharya
-    given-names: Ushashi
-    orcid: "https://orcid.org/0009-0002-2254-3914"
-    affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
-    email: rai.bhattacharya.in@gmail.com
-version: 2.0.0
-date-released: 2026-10-15
-doi: 10.5281/zenodo.23384530
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.23384530
-    description: "Zenodo, release v2.0.0"
-  - type: doi
-    value: 10.5281/zenodo.23313258
-    description: "Zenodo, all versions"
-  - type: doi
-    value: 10.5281/zenodo.23313541
-    description: "Zenodo, release v1.0.1"
-  - type: doi
-    value: 10.5281/zenodo.23313259
-    description: "Zenodo, release v1.0.0"
+version: 2.1.0
+date-released: 2026-10-22
+url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0"
 license: MIT
 repository-code: "https://github.com/creelie/literate-octo-lamp"
 keywords:
