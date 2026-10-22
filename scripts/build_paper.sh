@@ -43,6 +43,8 @@ rm -rf dist
 mkdir -p dist "$PRE"
 cp paper/main.pdf "dist/${NAME}_final2.pdf"
 cp paper/main.pdf "$PRE/$NAME.pdf"
+mkdir -p paper/paper1 paper/paper2
+cp paper/main.pdf "paper/paper1/$NAME.pdf"
 
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
@@ -54,6 +56,7 @@ cp paper/main.tex paper/elsarticle.cls "$SRC/"
 cp paper/figures/*.png "$SRC/figures/"
 ( cd "$STAGE" && zip -qrX "${NAME}_final2-tex.zip" "${NAME}_final2-tex" )
 mv "$STAGE/${NAME}_final2-tex.zip" dist/
+cp "dist/${NAME}_final2-tex.zip" "paper/paper2/${NAME}-tex.zip"
 tar -czf "dist/${NAME}_final2-arxiv.tar.gz" -C "$SRC" main.tex elsarticle.cls figures
 
 echo "== $MASTER"

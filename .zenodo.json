@@ -9,11 +9,6 @@
       "name": "Bhattacharjee, Deep",
       "orcid": "0000-0003-0466-750X",
       "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
-    },
-    {
-      "name": "Bhattacharya, Ushashi",
-      "orcid": "0009-0002-2254-3914",
-      "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
   "keywords": [
@@ -31,5 +26,5 @@
     }
   ],
   "language": "eng",
-  "version": "2.0.0"
+  "version": "2.1.0"
 }

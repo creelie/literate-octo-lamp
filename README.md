@@ -1,13 +1,11 @@
 # The minimum number of distinct abelian squares in a binary circular word
 
-Deep Bhattacharjee (corresponding author; Formerly, Electro-Gravitational
-Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India;
-itsdeep@live.com, d.bhattacharjee@erl-forschung.de; ORCID 0000-0003-0466-750X)
-and Ushashi Bhattacharya (Formerly, National Taiwan University, Taipei 106319,
-Taiwan; rai.bhattacharya.in@gmail.com; ORCID 0009-0002-2254-3914).
+Deep Bhattacharjee (Formerly, Electro-Gravitational Space Propulsion Laboratory
+(EGSPL), Bhubaneswar, Odisha 751030, India; itsdeep@live.com,
+d.bhattacharjee@erl-forschung.de; ORCID 0000-0003-0466-750X).
 
 - Paper: [`preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf`](preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf)
-- Lean 4 formalization on Zenodo: doi:[10.5281/zenodo.23384530](https://doi.org/10.5281/zenodo.23384530) (release v2.0.0; all versions: doi:[10.5281/zenodo.23313258](https://doi.org/10.5281/zenodo.23313258))
+- Lean 4 formalization and programs: release v2.1.0, https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0
 - Master zip: [`MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip`](https://github.com/creelie/literate-octo-lamp/raw/main/MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip)
 - Target journal: Theoretical Computer Science (`journal/JOURNAL.md`)
 - MSC 2020: Primary 68R15; Secondary 05A05, 68V15
@@ -107,14 +105,14 @@ python3, julia, a C compiler and a C++17 compiler.
 To build the paper and the release files: `scripts/build_paper.sh` (needs pdflatex,
 zip and tar; `figures/make_figures.sh` redraws the figures).
 
-## Archive
+## Releases
 
-| Release | Zenodo DOI |
+| Release | Link |
 |---|---|
-| v2.0.0 (two authors, journal format) | [10.5281/zenodo.23384530](https://doi.org/10.5281/zenodo.23384530) |
-| v1.0.1 | [10.5281/zenodo.23313541](https://doi.org/10.5281/zenodo.23313541) |
-| v1.0.0 | [10.5281/zenodo.23313259](https://doi.org/10.5281/zenodo.23313259) |
-| all versions | [10.5281/zenodo.23313258](https://doi.org/10.5281/zenodo.23313258) |
+| v2.1.0 (sole author; paper cites this release) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0 |
+| v2.0.0 | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.0.0 |
+| v1.0.1 | https://github.com/creelie/literate-octo-lamp/releases/tag/v1.0.1 |
+| v1.0.0 | https://github.com/creelie/literate-octo-lamp/releases/tag/v1.0.0 |
 
 ## License
 
