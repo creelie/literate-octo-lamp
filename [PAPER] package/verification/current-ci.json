@@ -1,0 +1,14 @@
+{
+  "run_id": 40372451509,
+  "url": "https://github.com/creelie/literate-octo-lamp/actions/runs/40372451509",
+  "commit": "5909d31a9b9b033eda1cc892f9c3560cff077f70",
+  "status": "completed",
+  "conclusion": "success",
+  "started_at": "2026-10-26T17:50:57Z",
+  "updated_at": "2026-10-26T17:56:01Z",
+  "fresh_remote_lean_and_computation_check": true,
+  "six_theorem_axiom_check_success_summary_located": true,
+  "individual_axiom_outputs": "Redirected by the checked script to build/lean.txt; not included in the downloadable workflow log.",
+  "script_blob_sha": "2ac5f049f44635e6d3f3c078668d3c3e42afc5b7",
+  "script_checks": "Lean build succeeds, no error or sorryAx, and exactly six expected standard-axiom outputs."
+}

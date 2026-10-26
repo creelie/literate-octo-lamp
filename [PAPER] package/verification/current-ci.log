@@ -1,0 +1,221 @@
+LOG FILE: 0_Lean, C, C++, Bash, Python and Julia checks.txt
+﻿2026-10-26T17:51:01.7140528Z Current runner version: '2.338.0'
+2026-10-26T17:51:01.7157128Z ##[group]Runner Image Provisioner
+2026-10-26T17:51:01.7157955Z Hosted Compute Agent
+2026-10-26T17:51:01.7158297Z Version: 20261021.618
+2026-10-26T17:51:01.7158722Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-26T17:51:01.7159134Z Build Date: 2026-10-21T00:45:21Z
+2026-10-26T17:51:01.7159552Z Worker ID: {9e7515b7-89a9-4b28-8b29-2bb2acf62d3a}
+2026-10-26T17:51:01.7160006Z Region: westus2
+2026-10-26T17:51:01.7160333Z Cloud: Azure
+2026-10-26T17:51:01.7160672Z ##[endgroup]
+2026-10-26T17:51:01.7161453Z ##[group]Operating System
+2026-10-26T17:51:01.7161832Z Ubuntu
+2026-10-26T17:51:01.7162179Z 24.04.5
+2026-10-26T17:51:01.7162483Z LTS
+2026-10-26T17:51:01.7162778Z ##[endgroup]
+2026-10-26T17:51:01.7163165Z ##[group]Runner Image
+2026-10-26T17:51:01.7163538Z Image: ubuntu-24.04
+2026-10-26T17:51:01.7163907Z Version: 20261012.334.1
+2026-10-26T17:51:01.7164626Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-26T17:51:01.7165490Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-26T17:51:01.7166056Z ##[endgroup]
+2026-10-26T17:51:01.7166699Z ##[group]GITHUB_TOKEN Permissions
+2026-10-26T17:51:01.7168231Z Contents: read
+2026-10-26T17:51:01.7168851Z Metadata: read
+2026-10-26T17:51:01.7169210Z ##[endgroup]
+2026-10-26T17:51:01.7170469Z Secret source: Actions
+2026-10-26T17:51:01.7171068Z Cache mode: write
+2026-10-26T17:51:01.7171458Z Prepare workflow directory
+2026-10-26T17:51:01.7360772Z Prepare all required actions
+2026-10-26T17:51:01.7390027Z Getting action download info
+2026-10-26T17:51:02.0877372Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-26T17:51:02.1645771Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-26T17:51:02.2529414Z Download action repository 'julia-actions/setup-julia@v2' (SHA:4c0cb0fce8556fdb04a90347310e5db8b1f98fb9)
+2026-10-26T17:51:02.5552493Z Complete job name: Lean, C, C++, Bash, Python and Julia checks
+2026-10-26T17:51:02.6085475Z ##[group]Run actions/checkout@v4
+2026-10-26T17:51:02.6085870Z with:
+2026-10-26T17:51:02.6086114Z   repository: creelie/literate-octo-lamp
+2026-10-26T17:51:02.6088276Z   token: ***
+2026-10-26T17:51:02.6088502Z   ssh-strict: true
+2026-10-26T17:51:02.6088733Z   ssh-user: git
+2026-10-26T17:51:02.6088975Z   persist-credentials: true
+2026-10-26T17:51:02.6089237Z   clean: true
+2026-10-26T17:51:02.6089476Z   sparse-checkout-cone-mode: true
+2026-10-26T17:51:02.6089750Z   fetch-depth: 1
+2026-10-26T17:51:02.6089977Z   fetch-tags: false
+2026-10-26T17:51:02.6090213Z   show-progress: true
+2026-10-26T17:51:02.6090446Z   lfs: false
+2026-10-26T17:51:02.6090664Z   submodules: false
+2026-10-26T17:51:02.6090899Z   set-safe-directory: true
+2026-10-26T17:51:02.6091165Z   allow-unsafe-pr-checkout: false
+2026-10-26T17:51:02.6091513Z ##[endgroup]
+2026-10-26T17:51:02.6711752Z Syncing repository: creelie/literate-octo-lamp
+2026-10-26T17:51:02.6713185Z ##[group]Getting Git version info
+2026-10-26T17:51:02.6713876Z Working directory is '/home/runner/work/literate-octo-lamp/literate-octo-lamp'
+2026-10-26T17:51:02.6714890Z [command]/usr/bin/git version
+2026-10-26T17:51:02.6772324Z git version 2.55.0
+2026-10-26T17:51:02.6784333Z ##[endgroup]
+2026-10-26T17:51:02.6793752Z Temporarily overriding HOME='/home/runner/work/_temp/5fed1512-dece-49ad-9e29-8b8f46c18624' before making global git config changes
+2026-10-26T17:51:02.6794914Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T17:51:02.6797029Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/literate-octo-lamp/literate-octo-lamp
+2026-10-26T17:51:02.6840772Z Deleting the contents of '/home/runner/work/literate-octo-lamp/literate-octo-lamp'
+2026-10-26T17:51:02.6846323Z ##[group]Initializing the repository
+2026-10-26T17:51:02.6847012Z [command]/usr/bin/git init /home/runner/work/literate-octo-lamp/literate-octo-lamp
+2026-10-26T17:51:02.6946011Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-26T17:51:02.6956069Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-26T17:51:02.6956783Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-26T17:51:02.6957459Z hint: call:
+2026-10-26T17:51:02.6957778Z hint:
+2026-10-26T17:51:02.6958203Z hint: 	git config --global init.defaultBranch <name>
+2026-10-26T17:51:02.6958712Z hint:
+2026-10-26T17:51:02.6959172Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-26T17:51:02.6959918Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-26T17:51:02.6960543Z hint:
+2026-10-26T17:51:02.6960890Z hint: 	git branch -m <name>
+2026-10-26T17:51:02.6961270Z hint:
+2026-10-26T17:51:02.6961758Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-26T17:51:02.6962662Z Initialized empty Git repository in /home/runner/work/literate-octo-lamp/literate-octo-lamp/.git/
+2026-10-26T17:51:02.6964267Z [command]/usr/bin/git remote add origin https://github.com/creelie/literate-octo-lamp
+2026-10-26T17:51:02.7013986Z ##[endgroup]
+2026-10-26T17:51:02.7014738Z ##[group]Disabling automatic garbage collection
+2026-10-26T17:51:02.7018073Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-26T17:51:02.7045693Z ##[endgroup]
+2026-10-26T17:51:02.7046091Z ##[group]Setting up auth
+2026-10-26T17:51:02.7052526Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T17:51:02.7080544Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T17:51:02.7373298Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T17:51:02.7401296Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T17:51:02.7565129Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T17:51:02.7592102Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T17:51:02.7757601Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-26T17:51:02.7790368Z ##[endgroup]
+2026-10-26T17:51:02.7790981Z ##[group]Fetching the repository
+2026-10-26T17:51:02.7796764Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5909d31a9b9b033eda1cc892f9c3560cff077f70:refs/remotes/origin/main
+2026-10-26T17:51:03.3687526Z From https://github.com/creelie/literate-octo-lamp
+2026-10-26T17:51:03.3688516Z  * [new ref]         5909d31a9b9b033eda1cc892f9c3560cff077f70 -> origin/main
+2026-10-26T17:51:03.3700385Z ##[endgroup]
+2026-10-26T17:51:03.3701161Z ##[group]Determining the checkout info
+2026-10-26T17:51:03.3701963Z ##[endgroup]
+2026-10-26T17:51:03.3702447Z [command]/usr/bin/git sparse-checkout disable
+2026-10-26T17:51:03.3749175Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-26T17:51:03.3778100Z ##[group]Checking out the ref
+2026-10-26T17:51:03.3781061Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-26T17:51:03.3994796Z Switched to a new branch 'main'
+2026-10-26T17:51:03.3997716Z branch 'main' set up to track 'origin/main'.
+2026-10-26T17:51:03.4003526Z ##[endgroup]
+2026-10-26T17:51:03.4036735Z [command]/usr/bin/git log -1 --format=%H
+2026-10-26T17:51:03.4057737Z 5909d31a9b9b033eda1cc892f9c3560cff077f70
+2026-10-26T17:51:03.4313915Z ##[group]Run actions/setup-python@v5
+2026-10-26T17:51:03.4314638Z with:
+2026-10-26T17:51:03.4315192Z   python-version: 3.12
+2026-10-26T17:51:03.4315939Z   check-latest: false
+2026-10-26T17:51:03.4320887Z   token: ***
+2026-10-26T17:51:03.4321481Z   update-environment: true
+2026-10-26T17:51:03.4322134Z   allow-prereleases: false
+2026-10-26T17:51:03.4322767Z   freethreaded: false
+2026-10-26T17:51:03.4323358Z ##[endgroup]
+2026-10-26T17:51:03.5121973Z ##[group]Installed versions
+2026-10-26T17:51:03.5181230Z (node:2313) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T17:51:03.5182926Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T17:51:03.5193526Z Successfully set up CPython (3.12.15)
+2026-10-26T17:51:03.5195049Z ##[endgroup]
+2026-10-26T17:51:03.5370518Z ##[group]Run julia-actions/setup-julia@v2
+2026-10-26T17:51:03.5371246Z with:
+2026-10-26T17:51:03.5371806Z   version: 1.10
+2026-10-26T17:51:03.5372632Z   include-all-prereleases: false
+2026-10-26T17:51:03.5373528Z   arch: default
+2026-10-26T17:51:03.5374289Z   show-versioninfo: false
+2026-10-26T17:51:03.5375128Z env:
+2026-10-26T17:51:03.5376054Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:03.5377255Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-26T17:51:03.5378503Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:03.5379592Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:03.5380662Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:03.5381531Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-26T17:51:03.5382264Z ##[endgroup]
+2026-10-26T17:51:04.2745229Z [command]/usr/bin/tar xf /home/runner/work/_temp/f0200110-6888-4589-8366-d519cbf5d6dd --strip-components=1 -C /opt/hostedtoolcache/julia/1.10.12/x64
+2026-10-26T17:51:06.9540635Z [command]/opt/hostedtoolcache/julia/1.10.12/x64/bin/julia --version
+2026-10-26T17:51:06.9660750Z julia version 1.10.12
+2026-10-26T17:51:06.9820620Z ##[group]Run curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+2026-10-26T17:51:06.9821070Z [36;1mcurl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \[0m
+2026-10-26T17:51:06.9821346Z [36;1m  | sh -s -- -y --default-toolchain none[0m
+2026-10-26T17:51:06.9821526Z [36;1mecho "$HOME/.elan/bin" >> "$GITHUB_PATH"[0m
+2026-10-26T17:51:07.0036401Z shell: /usr/bin/bash -e {0}
+2026-10-26T17:51:07.0036563Z env:
+2026-10-26T17:51:07.0036720Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.0036966Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-26T17:51:07.0037301Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.0037507Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.0037715Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.0037960Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-26T17:51:07.0038162Z ##[endgroup]
+2026-10-26T17:51:07.1714056Z info: downloading installer
+2026-10-26T17:51:07.7358006Z ##[group]Run scripts/run_all.sh
+2026-10-26T17:51:07.7358198Z [36;1mscripts/run_all.sh[0m
+2026-10-26T17:51:07.7409837Z shell: /usr/bin/bash -e {0}
+2026-10-26T17:51:07.7409976Z env:
+2026-10-26T17:51:07.7410122Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410352Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-26T17:51:07.7410588Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410789Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410990Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7411194Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-26T17:51:07.7411368Z ##[endgroup]
+2026-10-26T17:51:07.7517833Z == C and C++
+2026-10-26T17:51:46.1335533Z ok:   C: every binary circular word of length n <= 22
+2026-10-26T17:52:25.6161046Z ok:   C++: every necklace of length n <= 28
+2026-10-26T17:52:25.6161909Z == Shell
+2026-10-26T17:53:13.7847828Z ok:   check_small.sh
+2026-10-26T17:53:13.7849083Z == Python
+2026-10-26T17:53:25.4333881Z ok:   verify_simpson.py
+2026-10-26T17:53:25.4334078Z == Julia
+2026-10-26T17:53:28.0448756Z ok:   verify_lemmas.jl
+2026-10-26T17:53:28.0449166Z == Lean
+2026-10-26T17:55:57.6859990Z ok:   Lean: six theorems, axioms propext, Classical.choice, Quot.sound only
+2026-10-26T17:55:57.6864306Z ALL CHECKS PASSED
+2026-10-26T17:55:57.6955211Z Post job cleanup.
+2026-10-26T17:55:57.8756261Z (node:167888) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T17:55:57.8838541Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T17:55:57.8922782Z Post job cleanup.
+2026-10-26T17:55:57.9517910Z [command]/usr/bin/git version
+2026-10-26T17:55:57.9549256Z git version 2.55.0
+2026-10-26T17:55:57.9572357Z Temporarily overriding HOME='/home/runner/work/_temp/345aca51-43a1-4caa-984e-7750d343cced' before making global git config changes
+2026-10-26T17:55:57.9573283Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T17:55:57.9575564Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/literate-octo-lamp/literate-octo-lamp
+2026-10-26T17:55:57.9606710Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T17:55:57.9633340Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T17:55:57.9852497Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T17:55:57.9883916Z http.https://github.com/.extraheader
+2026-10-26T17:55:57.9890116Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-26T17:55:57.9936954Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T17:55:58.0122505Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T17:55:58.0152982Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T17:55:58.0448053Z Cleaning up orphan processes
+2026-10-26T17:55:58.0769410Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, julia-actions/setup-julia@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+
+LOG FILE: Lean, C, C++, Bash, Python and Julia checks/6_Run scripts_run_all.sh.txt
+﻿2026-10-26T17:51:07.7357991Z ##[group]Run scripts/run_all.sh
+2026-10-26T17:51:07.7358196Z [36;1mscripts/run_all.sh[0m
+2026-10-26T17:51:07.7409831Z shell: /usr/bin/bash -e {0}
+2026-10-26T17:51:07.7409974Z env:
+2026-10-26T17:51:07.7410119Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410350Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-26T17:51:07.7410585Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410787Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7410988Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-26T17:51:07.7411193Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-26T17:51:07.7411365Z ##[endgroup]
+2026-10-26T17:51:07.7517814Z == C and C++
+2026-10-26T17:51:46.1335491Z ok:   C: every binary circular word of length n <= 22
+2026-10-26T17:52:25.6160988Z ok:   C++: every necklace of length n <= 28
+2026-10-26T17:52:25.6161845Z == Shell
+2026-10-26T17:53:13.7847781Z ok:   check_small.sh
+2026-10-26T17:53:13.7849075Z == Python
+2026-10-26T17:53:25.4333836Z ok:   verify_simpson.py
+2026-10-26T17:53:25.4334075Z == Julia
+2026-10-26T17:53:28.0448713Z ok:   verify_lemmas.jl
+2026-10-26T17:53:28.0449150Z == Lean
+2026-10-26T17:55:57.6859961Z ok:   Lean: six theorems, axioms propext, Classical.choice, Quot.sound only
+2026-10-26T17:55:57.6864299Z ALL CHECKS PASSED

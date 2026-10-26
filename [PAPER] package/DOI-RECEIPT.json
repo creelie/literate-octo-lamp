@@ -1,0 +1,18 @@
+{
+  "doi": "10.5281/zenodo.23672660",
+  "url": "https://doi.org/10.5281/zenodo.23672660",
+  "record_id": 23672660,
+  "conceptrecid": "23313258",
+  "version": "2.2.0",
+  "published": true,
+  "github_release": "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0",
+  "frozen_commit": "5909d31a9b9b033eda1cc892f9c3560cff077f70",
+  "archive": {
+    "file": "creelie/literate-octo-lamp-v2.2.0.zip",
+    "bytes": 5521354,
+    "checksum": "md5:9d76649d59cb93bbf86e4c789cddefe6",
+    "frozen_files_verified": 59
+  },
+  "confirmed_at_utc": "2026-10-26T17:58:21.079291+00:00",
+  "final_zip_creation_authorized_by_confirmed_doi": true
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "zip": "SimpsonCircularAbelianSquarestex.zip",
+    "compile": "passed",
+    "pages": 9,
+    "matches_delivered_pdf_text": true
+  },
+  {
+    "zip": "coverlettertex.zip",
+    "compile": "passed",
+    "pages": 1,
+    "matches_delivered_pdf_text": true
+  }
+]
