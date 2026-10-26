@@ -1,5 +1,14 @@
 # The minimum number of distinct abelian squares in a binary circular word
 
+## Current amsart submission package (v2.2.0)
+
+Use `[PAPER] package/` for the nine-page, single-column amsart PDF, portable TeX sources, provenance, Hexagon fields, verification record and prepared journal documents. `paper/main.tex` is the same manuscript source. There is no line numbering. The mathematical proof body and formalisation sources are retained from the verified v2.1.0 commit; this is a presentation and submission update, not a newly discovered theorem.
+
+The complete corrected circular-word result is proved for every positive length. Simpson's odd case holds; the even extremal list needs the alternating words for lengths 2 modulo 4. The separate linear-word conjecture is not claimed. The published human-understanding declaration remains “some parts”. The journal documents are drafts; its human-understanding, exclusivity and recent-submission checks require the author's confirmation before any actual journal submission.
+
+Historical descriptions and `dist/` files below may refer to older editions. The present source ZIPs are created only after the new version DOI is confirmed. The complete unzipped sources are present in the DOI-bearing release archive.
+
+
 Deep Bhattacharjee (Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India; itsdeep@live.com,
 d.bhattacharjee@erl-forschung.de; ORCID 0000-0003-0466-750X).

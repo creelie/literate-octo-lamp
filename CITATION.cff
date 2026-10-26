@@ -8,9 +8,9 @@ authors:
     orcid: "https://orcid.org/0000-0003-0466-750X"
     affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
     email: itsdeep@live.com
-version: 2.1.0
-date-released: 2026-10-22
-url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0"
+version: 2.2.0
+date-released: 2026-10-26
+url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0"
 license: MIT
 repository-code: "https://github.com/creelie/literate-octo-lamp"
 keywords:

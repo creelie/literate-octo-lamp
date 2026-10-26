@@ -1,0 +1,122 @@
+{
+  "status": "passed",
+  "supplied_verifier": "all binary words of lengths 1-12",
+  "independent_checker": "integer bit windows, popcounts and sets of exact factors",
+  "independent_lengths": [
+    1,
+    14
+  ],
+  "independent_word_count": 32766,
+  "checks": [
+    "sharp minimum",
+    "complete equality classification",
+    "alternating exception",
+    "one-letter and length-one cases"
+  ],
+  "rows": [
+    {
+      "length": 1,
+      "words": 2,
+      "minimum": 0,
+      "extremal_words": 2,
+      "passed": true
+    },
+    {
+      "length": 2,
+      "words": 4,
+      "minimum": 0,
+      "extremal_words": 2,
+      "passed": true
+    },
+    {
+      "length": 3,
+      "words": 8,
+      "minimum": 1,
+      "extremal_words": 8,
+      "passed": true
+    },
+    {
+      "length": 4,
+      "words": 16,
+      "minimum": 1,
+      "extremal_words": 8,
+      "passed": true
+    },
+    {
+      "length": 5,
+      "words": 32,
+      "minimum": 2,
+      "extremal_words": 12,
+      "passed": true
+    },
+    {
+      "length": 6,
+      "words": 64,
+      "minimum": 2,
+      "extremal_words": 20,
+      "passed": true
+    },
+    {
+      "length": 7,
+      "words": 128,
+      "minimum": 3,
+      "extremal_words": 16,
+      "passed": true
+    },
+    {
+      "length": 8,
+      "words": 256,
+      "minimum": 3,
+      "extremal_words": 32,
+      "passed": true
+    },
+    {
+      "length": 9,
+      "words": 512,
+      "minimum": 4,
+      "extremal_words": 20,
+      "passed": true
+    },
+    {
+      "length": 10,
+      "words": 1024,
+      "minimum": 4,
+      "extremal_words": 52,
+      "passed": true
+    },
+    {
+      "length": 11,
+      "words": 2048,
+      "minimum": 5,
+      "extremal_words": 24,
+      "passed": true
+    },
+    {
+      "length": 12,
+      "words": 4096,
+      "minimum": 5,
+      "extremal_words": 72,
+      "passed": true
+    },
+    {
+      "length": 13,
+      "words": 8192,
+      "minimum": 6,
+      "extremal_words": 28,
+      "passed": true
+    },
+    {
+      "length": 14,
+      "words": 16384,
+      "minimum": 6,
+      "extremal_words": 100,
+      "passed": true
+    }
+  ],
+  "lean_source_scan_files": 14,
+  "admission_scan_findings": [],
+  "new_local_full_lean_build": false,
+  "seconds": 43.9,
+  "checker_sha256": "8fef396c85120b9b0583e5a02d0b969e3756e7b29a933c132111dc71571f66ad",
+  "finite_computation_is_general_proof": false
+}

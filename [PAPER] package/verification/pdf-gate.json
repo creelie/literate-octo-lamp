@@ -1,0 +1,29 @@
+{
+  "pdfs": [
+    {
+      "file": "SimpsonCircularAbelianSquares.pdf",
+      "pages": 9,
+      "sha256": "9025016f7ca54d72fc07fcd947dfb47c2652d0c630d8e6ed5238cd5129205eb1",
+      "text_gate": "passed"
+    },
+    {
+      "file": "coverletterjournal.pdf",
+      "pages": 1,
+      "sha256": "4b17e5a6db37c0f1b0aca1e7b14202d51a9857108b3184cb7363fe9aa917c2e7",
+      "text_gate": "passed"
+    },
+    {
+      "file": "journalaideclarationform.pdf",
+      "pages": 1,
+      "sha256": "63884e0638e9fdd873fe6bdd86d2eabc86331837027a67823e244dbfe11c433c",
+      "text_gate": "passed"
+    }
+  ],
+  "compile_issues": {
+    "manuscript": [],
+    "cover_letter": [],
+    "ai_disclosure": []
+  },
+  "visual_review_pending": false,
+  "visual_review": "All nine manuscript pages and both one-page supporting PDFs inspected as rendered images; no clipping, overlap, missing glyphs or line numbering."
+}

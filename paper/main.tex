@@ -1,17 +1,13 @@
-\documentclass[preprint,12pt]{elsarticle}
-
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsthm}
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{xurl}
+\usepackage{lmodern,amssymb,graphicx,xurl}
+\usepackage[textwidth=370pt,textheight=620pt,centering]{geometry}
 \usepackage[hidelinks]{hyperref}
-
-\journal{Theoretical Computer Science}
-
-\newcommand{\releaseURL}{https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0}
-
+\raggedbottom
+\setlength{\emergencystretch}{3em}
+\hypersetup{pdftitle={The minimum number of distinct abelian squares in a binary circular word},pdfauthor={Deep Bhattacharjee}}
+\newcommand{\releaseURL}{https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -20,39 +16,22 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem*{conjecture*}{Conjecture 0.6 of \cite{Sim18}}
-
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\lb}{\bar\ell}
 \newcommand{\fl}[1]{\lfloor #1\rfloor}
-
+\title[Abelian squares in binary circular words]{The minimum number of distinct abelian squares in a binary circular word}
+\author{Deep Bhattacharjee}
+\address{Formerly, EGSPL, Bhubaneswar, Odisha 751030, India}
+\email{itsdeep@live.com}
+\thanks{ORCID: \href{https://orcid.org/0000-0003-0466-750X}{0000-0003-0466-750X}.}
+\subjclass[2020]{Primary 68R15; Secondary 05A05, 68V15}
+\keywords{Abelian square, circular word, Parikh vector, combinatorics on words}
+\date{26 October 2026}
 \begin{document}
-
-\begin{frontmatter}
-
-\title{The minimum number of distinct abelian squares in a binary circular word}
-
-\author[egspl]{Deep Bhattacharjee\corref{cor1}\fnref{orcid1}}
-\ead{itsdeep@live.com}
-\ead{d.bhattacharjee@erl-forschung.de}
-\fntext[orcid1]{ORCID: \url{https://orcid.org/0000-0003-0466-750X}}
-\cortext[cor1]{Corresponding author.}
-\affiliation[egspl]{organization={Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL)},
-            city={Bhubaneswar},
-            postcode={751030},
-            state={Odisha},
-            country={India}}
-
-
 \begin{abstract}
 We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$.
 \end{abstract}
-
-\begin{keyword}
-abelian square \sep circular word \sep Parikh vector \sep combinatorics on words
-\MSC[2020] Primary 68R15 \sep Secondary 05A05 \sep 68V15
-\end{keyword}
-
-\end{frontmatter}
+\maketitle
 
 \section{Introduction}\label{sec:intro}
 
@@ -267,16 +246,16 @@ Conversely let $D(w)=\fl{(n-1)/2}$. By Proposition~\ref{prop:equality}, $w$ is r
 
 \section{Formal verification}\label{sec:lean}
 
-Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20}, version~4.34.1, and the formal proofs are checked by the Lean kernel. Words are lists over a two-letter alphabet, and the definitions follow Section~\ref{sec:intro} literally: an abelian square is a word $uv$ with $u$ nonempty and the same number of each letter in $u$ and $v$; the factors of a circular word $w$ of length $n$ are the prefixes of length $L$, $1\le L\le n$, of its $n$ rotations; and $D(w)$ is the number of distinct factors that are abelian squares. The formal statements are the following. For every $n\ge 1$ the least value of $D$ on the words of length $n$ is $\fl{(n-1)/2}$. A word of odd length, and a word of even length, attains this value exactly when it is a conjugate of one of the words in (a), respectively (b), of Theorem~\ref{thm:main}. Part~(a) of Conjecture~0.6 holds, and part~(b), stated literally, is false. Finally $D(ababab)=2$, and $ababab$ is not a conjugate of $a^kb^{6-k}$ or of its complement for any $k$. The proofs depend only on the axioms of Lean's logic, namely propositional extensionality, choice and the soundness of quotients; they contain no unproved step and add no axiom.
+Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20}, version~4.34.1, and the formal proofs are checked by the Lean kernel. Words are lists over a two-letter alphabet, and the definitions follow Section~\ref{sec:intro} literally: an abelian square is a word $uv$ with $u$ nonempty and the same number of each letter in $u$ and $v$; the factors of a circular word $w$ of length $n$ are the prefixes of length $L$, $1\le L\le n$, of its $n$ rotations; and $D(w)$ is the number of distinct factors that are abelian squares. The formal statements are the following. For every $n\ge 1$ the least value of $D$ on the words of length $n$ is $\fl{(n-1)/2}$. A word of odd length, and a word of even length, attains this value exactly when it is a conjugate of one of the words in (a), respectively (b), of Theorem~\ref{thm:main}. Part~(a) of Conjecture~0.6 holds, and part~(b), stated literally, is false. Finally $D(ababab)=2$, and $ababab$ is not a conjugate of $a^kb^{6-k}$ or of its complement for any $k$. The repository verification of the pinned source checks these statements; the verification record accompanying this edition identifies the commit and successful run. The proofs depend only on the axioms of Lean's logic, namely propositional extensionality, choice and the soundness of quotients; they contain no unproved step and add no axiom.
 
 Independent computations confirm Theorem~\ref{thm:main} on every binary circular word of length at most $22$ and on one word of each necklace class up to length $28$, and they confirm each lemma of Sections~\ref{sec:lower} and~\ref{sec:tight} on every word of length at most $16$.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work the author used Claude (Anthropic) in order to assist with the proofs, the Lean formalization, the computations and the preparation of the manuscript. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
+Claude (Anthropic) assisted with the original proofs, Lean formalization, computations and manuscript preparation. OpenAI Codex assisted with the source audit, small-case verification and conversion to the amsart format for this edition. The mathematical proof body is retained. The author is responsible for the content; no AI system is an author.
 
 \section*{Data availability}
 \begingroup\raggedright
-Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.1.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}.\par
+Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.2.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}; the earlier preprint is Hexagon \href{https://hexagonmath.org/2610.00473v1}{2610.00473v1}.\par
 \endgroup
 
 \section*{Competing interests}
@@ -288,13 +267,13 @@ None.
 \begin{thebibliography}{8}
 
 \bibitem{Sim18}
-J.~Simpson, Solved and unsolved problems about abelian squares, preprint (2018), arXiv:1802.04481.
+J.~Simpson, Solved and unsolved problems about abelian squares, preprint (2018), \href{https://arxiv.org/abs/1802.04481v1}{arXiv:1802.04481v1}.
 
 \bibitem{FSP97}
 A.\,S.~Fraenkel, J.~Simpson, M.~Paterson, On weak circular squares in binary words, in: Combinatorial Pattern Matching (CPM 1997), Lecture Notes in Computer Science, Springer, 1997, pp.~76--82, \href{https://doi.org/10.1007/3-540-63220-4_51}{doi:10.1007/3-540-63220-4\_51}.
 
 \bibitem{FMMS26}
-S.\,Z.~Fazekas, A.~Mammoliti, R.~Merca\c{s}, J.~Simpson, Binary words containing few abelian squares, preprint (2026), arXiv:2604.23188.
+S.\,Z.~Fazekas, A.~Mammoliti, R.~Merca\c{s}, J.~Simpson, Binary words containing few abelian squares, preprint (2026), \href{https://arxiv.org/abs/2604.23188v1}{arXiv:2604.23188v1}.
 
 \bibitem{FM15}
 G.~Fici, F.~Mignosi, Words with the maximum number of abelian squares, in: Combinatorics on Words (WORDS 2015), Lecture Notes in Computer Science, Springer, 2015, pp.~122--134, \href{https://doi.org/10.1007/978-3-319-23660-5_11}{doi:10.1007/978-3-319-23660-5\_11}.

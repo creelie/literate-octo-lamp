@@ -1,0 +1,31 @@
+{
+  "source_commit": "a08e1ce81c2f8c863844473f5ad56e02ac9cc212",
+  "repository": "creelie/literate-octo-lamp",
+  "mathematical_proof_body_sha256": "964174dbe1818203de3f379d44a51db6fefddac758b367d9eca2d646623eccf5",
+  "mathematical_proof_body_unchanged": true,
+  "unchanged_verification_files": [
+    "verification/c/circsq.c",
+    "verification/cpp/necklaces.cpp",
+    "verification/julia/verify_lemmas.jl",
+    "verification/lean/Axioms.lean",
+    "verification/lean/Circ.lean",
+    "verification/lean/Circ/Basic.lean",
+    "verification/lean/Circ/Bound.lean",
+    "verification/lean/Circ/Bridge.lean",
+    "verification/lean/Circ/Classify.lean",
+    "verification/lean/Circ/Column.lean",
+    "verification/lean/Circ/Enum.lean",
+    "verification/lean/Circ/MainX.lean",
+    "verification/lean/Circ/Patterns.lean",
+    "verification/lean/Circ/Runs.lean",
+    "verification/lean/Circ/Simpson.lean",
+    "verification/lean/Circ/Squares.lean",
+    "verification/lean/Circ/Statement.lean",
+    "verification/lean/lake-manifest.json",
+    "verification/lean/lakefile.toml",
+    "verification/lean/lean-toolchain",
+    "verification/python/verify_simpson.py",
+    "verification/shell/check_small.sh"
+  ],
+  "fresh_full_local_lean_build": false
+}
