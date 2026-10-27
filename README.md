@@ -1,20 +1,21 @@
 # The minimum number of distinct abelian squares in a binary circular word
 
-## Current amsart submission package (v2.2.0)
+## Current version (v2.3.0)
 
-Use `[PAPER] package/` for the nine-page, single-column amsart PDF, portable TeX sources, provenance, Hexagon fields, verification record and prepared journal documents. `paper/main.tex` is the same manuscript source. There is no line numbering. The mathematical proof body and formalisation sources are retained from the verified v2.1.0 commit; this is a presentation and submission update, not a newly discovered theorem.
+`paper/main.tex` is the amsart manuscript (thirteen pages, single column). Sections 1 to 4 prove the circular-word theorem below and are formalised in Lean 4. Sections 5 and 6, added in v2.3.0, review the other problems of Simpson's survey:
 
-The complete corrected circular-word result is proved for every positive length. Simpson's odd case holds; the even extremal list needs the alternating words for lengths 2 modulo 4. The separate linear-word conjecture is not claimed. The published human-understanding declaration remains “some parts”. The journal documents are drafts; its human-understanding, exclusivity and recent-submission checks require the author's confirmation before any actual journal submission.
+- for odd n, the least number of non-equivalent abelian squares in a circular word (types (half-length, count of a in the left half)) is conjectured to be (n−1)/2 as well; the two-run words, the jump lemma and the descent lemma are proved, and the conjecture and the prefix inequality Σ_{m≤k} z_m ≥ k are verified to n = 27 (`verification/c/odd_circular_types.c`);
+- the linear-word minimum ⌊n/4⌋ (Fici–Saarela; Simpson's Problems 0.4 and 0.5) is verified to n = 24 (`verification/c/linear_minima.c`) and stays open, as do Problems 0.1 (Fici–Mignosi), 0.2 (Kucherov–Ochem–Rao) and 0.3 (Mäkelä);
+- the least number T(n) of occurrences of abelian squares in a binary word of length n (Problem 0.7) satisfies: T(n)/n has a limit, finite or infinite; the limit is at least 1.6; and T(n) < n^{3/2}. `verification/c/total_occurrences.c` recomputes T(n) for n ≤ 28 (OEIS A268084).
 
-Historical descriptions and `dist/` files below may refer to older editions. The present source ZIPs are created only after the new version DOI is confirmed. The complete unzipped sources are present in the DOI-bearing release archive.
-
+The new sections are not formalised. `[PAPER] package/` is the v2.2.0 submission package and is kept as it was; the `dist/` files, the preprint folder and the master zip are rebuilt by `scripts/build_paper.sh` for each release.
 
 Deep Bhattacharjee (Formerly, Electro-Gravitational Space Propulsion Laboratory
 (EGSPL), Bhubaneswar, Odisha 751030, India; itsdeep@live.com,
 d.bhattacharjee@erl-forschung.de; ORCID 0000-0003-0466-750X).
 
 - Paper: [`preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf`](preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf)
-- Lean 4 formalization and programs: release v2.1.0, https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0
+- Lean 4 formalization and programs: release v2.3.0, https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0
 - Master zip: [`MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip`](https://github.com/creelie/literate-octo-lamp/raw/main/MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip)
 - Target journal: Theoretical Computer Science (`journal/JOURNAL.md`)
 - MSC 2020: Primary 68R15; Secondary 05A05, 68V15
@@ -58,10 +59,10 @@ a case analysis of the runs of one letter gives the extremal words.
 | Path | Contents |
 |---|---|
 | `preprintSimpsonCircularAbelianSquares/` | the paper as a PDF, and nothing else |
-| `paper/` | LaTeX source (`main.tex`, Elsevier `elsarticle` class), the figures as PNG in `paper/figures/`, and the compiled `main.pdf` |
+| `paper/` | LaTeX source (`main.tex`, amsart), the figures as PNG in `paper/figures/`, and the compiled `main.pdf` |
 | `figures/` | TikZ sources of the three figures and `make_figures.sh`, which writes them to `paper/figures/` |
 | `verification/lean/` | Lean 4 + Mathlib formalization (13 files, 2230 lines); `Circ/Statement.lean` holds the definitions, `Circ/Simpson.lean` the theorems |
-| `verification/c/` | `circsq.c`: every binary word of length n <= 22 |
+| `verification/c/` | `circsq.c`: every binary word of length n <= 22; `odd_circular_types.c`, `linear_minima.c`, `total_occurrences.c`: the computations of Sections 5 and 6 |
 | `verification/cpp/` | `necklaces.cpp`: one word per necklace, n <= 28 |
 | `verification/python/` | `verify_simpson.py`: from the definitions (all rotations, all splits, Parikh vectors), n <= 12 |
 | `verification/julia/` | `verify_lemmas.jl`: every lemma of the proof on every word of length n <= 16 |
@@ -69,7 +70,7 @@ a case analysis of the runs of one letter gives the extremal words.
 | `scripts/run_all.sh` | runs the Lean build, the axiom check and all programs |
 | `scripts/build_paper.sh` | builds `dist/`, the preprint folder and the master zip |
 | `journal/JOURNAL.md` | target journal, format rules and AI policy |
-| `dist/` | `SimpsonCircularAbelianSquares_final2.pdf`, `SimpsonCircularAbelianSquares_final2-tex.zip` (source with PNG figures) and `SimpsonCircularAbelianSquares_final2-arxiv.tar.gz` |
+| `dist/` | `SimpsonCircularAbelianSquares_final2.pdf`, `SimpsonCircularAbelianSquares_final2-tex.zip` (source with PNG figures and the three programs in `anc/`) and `SimpsonCircularAbelianSquares_final2-arxiv.tar.gz` |
 | `MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip` | every tracked file of the repository with `dist/` and the preprint folder |
 
 ## Lean statements
@@ -118,7 +119,9 @@ zip and tar; `figures/make_figures.sh` redraws the figures).
 
 | Release | Link |
 |---|---|
-| v2.1.0 (sole author; paper cites this release) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0 |
+| v2.3.0 (Sections 5 and 6; paper cites this release) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0 |
+| v2.2.0 (amsart submission package) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0 |
+| v2.1.0 (sole author) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0 |
 | v2.0.0 | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.0.0 |
 | v1.0.1 | https://github.com/creelie/literate-octo-lamp/releases/tag/v1.0.1 |
 | v1.0.0 | https://github.com/creelie/literate-octo-lamp/releases/tag/v1.0.0 |

@@ -8,9 +8,9 @@ authors:
     orcid: "https://orcid.org/0000-0003-0466-750X"
     affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India"
     email: itsdeep@live.com
-version: 2.2.0
-date-released: 2026-10-26
-url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0"
+version: 2.3.0
+date-released: 2026-10-27
+url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0"
 license: MIT
 repository-code: "https://github.com/creelie/literate-octo-lamp"
 keywords:
@@ -25,6 +25,11 @@ abstract: >-
   attaining this bound. This settles Conjecture 0.6 of Simpson: its odd case
   holds, and in its even case the list of extremal words misses (ab)^{n/2}
   for n = 2 (mod 4), n >= 6. The proofs are formalized in Lean 4.
+  Version 2.3.0 reviews the other problems of Simpson's survey: lemmas and
+  a conjecture, verified to length 27, on the least number of non-equivalent
+  abelian squares in an odd-length circular word, and a theorem that the
+  least number of occurrences of abelian squares in a binary word of length
+  n is asymptotically proportional to n or grows faster, and is below n^{3/2}.
 references:
   - type: article
     title: "Solved and unsolved problems about abelian squares"
