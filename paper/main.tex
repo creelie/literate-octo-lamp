@@ -22,9 +22,12 @@
 \newcommand{\fl}[1]{\lfloor #1\rfloor}
 \title[Abelian squares in binary circular words]{The minimum number of distinct abelian squares in a binary circular word}
 \author{Deep Bhattacharjee}
-\address{Formerly, EGSPL, Bhubaneswar, Odisha 751030, India}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India}
+\address{Formerly, University of Calcutta, Senate House, 87/1 College Street, Kolkata 700073, West Bengal, India}
+\email{d.bhattacharjee@erl-forschung.de}
 \email{itsdeep@live.com}
-\thanks{ORCID: \href{https://orcid.org/0000-0003-0466-750X}{0000-0003-0466-750X}.}
+\email{egspl@proton.me}
+\thanks{\sloppy Corresponding author: Deep Bhattacharjee. Email: \href{mailto:d.bhattacharjee@erl-forschung.de}{d.bhattacharjee@erl-forschung.de}, \href{mailto:itsdeep@live.com}{itsdeep@live.com}, \href{mailto:egspl@proton.me}{egspl@proton.me}; ORCID \href{https://orcid.org/0000-0003-0466-750X}{0000-0003-0466-750X}}
 \subjclass[2020]{Primary 68R15; Secondary 05A05, 68V15}
 \keywords{Abelian square, circular word, Parikh vector, combinatorics on words}
 \date{27 October 2026}
@@ -33,6 +36,11 @@
 We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$. We then review the other problems of the survey: we conjecture, and verify to length $27$, that for odd $n$ the least number of non-equivalent abelian squares in a circular word is also $(n-1)/2$, and we show that the least number of occurrences of abelian squares in a binary word of length $n$ is asymptotically proportional to $n$ or grows faster, and is below $n^{3/2}$.
 \end{abstract}
 \maketitle
+
+\begin{quote}
+\small\sloppy
+\noindent\textbf{Note.} An earlier version of this paper appeared on Hexagon, where it is the preprint \texttt{hexagon:2610.00473}, available at \url{https://hexagonmath.org/2610.00473v1}. That version proved Theorem~\ref{thm:main} and stopped there. This version adds Sections~\ref{sec:types} and~\ref{sec:others}, which treat the other problems of Simpson's survey: the balance identities, the jump and descent lemmas, the two-run formula and Conjecture~\ref{conj:odd} on non-equivalent abelian squares in circular words of odd length, verified to length $27$; the status of the linear-word minimum $\fl{n/4}$ and of the problems of Fici and Mignosi, of Kucherov, Ochem and Rao and of M\"akel\"a; and Theorem~\ref{thm:occ} on the least number of occurrences of abelian squares. The earlier versions are archived on Zenodo under the concept DOI \href{https://doi.org/10.5281/zenodo.23313258}{10.5281/zenodo.23313258} (versions \href{https://doi.org/10.5281/zenodo.23313259}{10.5281/zenodo.23313259}, \href{https://doi.org/10.5281/zenodo.23313541}{10.5281/zenodo.23313541}, \href{https://doi.org/10.5281/zenodo.23384530}{10.5281/zenodo.23384530}, \href{https://doi.org/10.5281/zenodo.23553002}{10.5281/zenodo.23553002} and \href{https://doi.org/10.5281/zenodo.23672660}{10.5281/zenodo.23672660}). The source of this revision, the Lean formalization and the programs are in the repository \url{https://github.com/creelie/literate-octo-lamp}, release \texttt{v2.3.0}, archived on Zenodo as \href{https://doi.org/10.5281/zenodo.23692500}{10.5281/zenodo.23692500}.
+\end{quote}
 
 \section{Introduction}\label{sec:intro}
 
@@ -363,7 +371,7 @@ Claude (Anthropic) assisted with the original proofs, Lean formalization, comput
 
 \section*{Data availability}
 \begingroup\raggedright
-Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.3.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}; the programs of Sections~\ref{sec:types} and~\ref{sec:others} are the ancillary files \texttt{odd\_circular\_types.c}, \texttt{linear\_minima.c} and \texttt{total\_occurrences.c}; the earlier preprint is Hexagon \href{https://hexagonmath.org/2610.00473v1}{2610.00473v1}.\par
+Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.3.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}; the programs of Sections~\ref{sec:types} and~\ref{sec:others} are the ancillary files \texttt{odd\_circular\_types.c}, \texttt{linear\_minima.c} and \texttt{total\_occurrences.c}; the release is archived on Zenodo as \href{https://doi.org/10.5281/zenodo.23692500}{10.5281/zenodo.23692500}; the earlier preprint is Hexagon \href{https://hexagonmath.org/2610.00473v1}{2610.00473v1}.\par
 \endgroup
 
 \section*{Competing interests}

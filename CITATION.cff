@@ -11,6 +11,13 @@ authors:
 version: 2.3.0
 date-released: 2026-10-27
 url: "https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23692500
+    description: "Version DOI of release v2.3.0"
+  - type: doi
+    value: 10.5281/zenodo.23313258
+    description: "Concept DOI of all versions"
 license: MIT
 repository-code: "https://github.com/creelie/literate-octo-lamp"
 keywords:

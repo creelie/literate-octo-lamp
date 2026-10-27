@@ -2,7 +2,7 @@
 
 ## Current version (v2.3.0)
 
-`paper/main.tex` is the amsart manuscript (thirteen pages, single column). Sections 1 to 4 prove the circular-word theorem below and are formalised in Lean 4. Sections 5 and 6, added in v2.3.0, review the other problems of Simpson's survey:
+`paper/main.tex` is the amsart manuscript (fourteen pages, single column). Sections 1 to 4 prove the circular-word theorem below and are formalised in Lean 4. Sections 5 and 6, added in v2.3.0, review the other problems of Simpson's survey:
 
 - for odd n, the least number of non-equivalent abelian squares in a circular word (types (half-length, count of a in the left half)) is conjectured to be (n−1)/2 as well; the two-run words, the jump lemma and the descent lemma are proved, and the conjecture and the prefix inequality Σ_{m≤k} z_m ≥ k are verified to n = 27 (`verification/c/odd_circular_types.c`);
 - the linear-word minimum ⌊n/4⌋ (Fici–Saarela; Simpson's Problems 0.4 and 0.5) is verified to n = 24 (`verification/c/linear_minima.c`) and stays open, as do Problems 0.1 (Fici–Mignosi), 0.2 (Kucherov–Ochem–Rao) and 0.3 (Mäkelä);
@@ -15,7 +15,7 @@ Deep Bhattacharjee (Formerly, Electro-Gravitational Space Propulsion Laboratory
 d.bhattacharjee@erl-forschung.de; ORCID 0000-0003-0466-750X).
 
 - Paper: [`preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf`](preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf)
-- Lean 4 formalization and programs: release v2.3.0, https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0
+- Lean 4 formalization and programs: release v2.3.0, https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0, Zenodo DOI [10.5281/zenodo.23692500](https://doi.org/10.5281/zenodo.23692500) (concept DOI 10.5281/zenodo.23313258)
 - Master zip: [`MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip`](https://github.com/creelie/literate-octo-lamp/raw/main/MasterSimpsonCircularAbelianSquares_masterzipfinal2.zip)
 - Target journal: Theoretical Computer Science (`journal/JOURNAL.md`)
 - MSC 2020: Primary 68R15; Secondary 05A05, 68V15
@@ -119,8 +119,8 @@ zip and tar; `figures/make_figures.sh` redraws the figures).
 
 | Release | Link |
 |---|---|
-| v2.3.0 (Sections 5 and 6; paper cites this release) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0 |
-| v2.2.0 (amsart submission package) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0 |
+| v2.3.0 (Sections 5 and 6; paper cites this release) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0, DOI [10.5281/zenodo.23692500](https://doi.org/10.5281/zenodo.23692500) |
+| v2.2.0 (amsart submission package) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0, DOI [10.5281/zenodo.23672660](https://doi.org/10.5281/zenodo.23672660) |
 | v2.1.0 (sole author) | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.1.0 |
 | v2.0.0 | https://github.com/creelie/literate-octo-lamp/releases/tag/v2.0.0 |
 | v1.0.1 | https://github.com/creelie/literate-octo-lamp/releases/tag/v1.0.1 |
