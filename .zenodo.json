@@ -23,6 +23,16 @@
       "identifier": "arXiv:1802.04481",
       "relation": "references",
       "scheme": "arxiv"
+    },
+    {
+      "identifier": "https://hexagonmath.org/2610.00473v1",
+      "relation": "isNewVersionOf",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23692500",
+      "relation": "isIdenticalTo",
+      "scheme": "doi"
     }
   ],
   "language": "eng",
