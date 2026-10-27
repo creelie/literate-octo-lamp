@@ -7,7 +7,7 @@
 \raggedbottom
 \setlength{\emergencystretch}{3em}
 \hypersetup{pdftitle={The minimum number of distinct abelian squares in a binary circular word},pdfauthor={Deep Bhattacharjee}}
-\newcommand{\releaseURL}{https://github.com/creelie/literate-octo-lamp/releases/tag/v2.2.0}
+\newcommand{\releaseURL}{https://github.com/creelie/literate-octo-lamp/releases/tag/v2.3.0}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -15,6 +15,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem*{conjecture*}{Conjecture 0.6 of \cite{Sim18}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\lb}{\bar\ell}
@@ -26,10 +27,10 @@
 \thanks{ORCID: \href{https://orcid.org/0000-0003-0466-750X}{0000-0003-0466-750X}.}
 \subjclass[2020]{Primary 68R15; Secondary 05A05, 68V15}
 \keywords{Abelian square, circular word, Parikh vector, combinatorics on words}
-\date{26 October 2026}
+\date{27 October 2026}
 \begin{document}
 \begin{abstract}
-We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$.
+We prove that every binary circular word of length $n$ contains at least $\fl{(n-1)/2}$ distinct abelian squares, and we determine all words attaining this bound. This settles a conjecture of Simpson: its odd case holds, and in its even case the list of extremal words misses $(ab)^{n/2}$ for $n\equiv 2\pmod 4$, $n\ge 6$. We then review the other problems of the survey: we conjecture, and verify to length $27$, that for odd $n$ the least number of non-equivalent abelian squares in a circular word is also $(n-1)/2$, and we show that the least number of occurrences of abelian squares in a binary word of length $n$ is asymptotically proportional to $n$ or grows faster, and is below $n^{3/2}$.
 \end{abstract}
 \maketitle
 
@@ -45,7 +46,7 @@ The minimum number of distinct abelian squares in a circular word of length $n$ 
 \end{enumerate}
 \end{conjecture*}
 
-For non-equivalent abelian squares in circular words the minimum was found by Fraenkel, Simpson and Paterson \cite{FSP97}. For linear binary words the minimum number of distinct abelian squares is conjectured by Fici and Saarela to be $\fl{n/4}$, and \cite{FMMS26} proves this in special cases; maximal numbers of abelian squares were studied in \cite{FM15,FMS17}, and \cite{FP23} surveys the area. We prove:
+For non-equivalent abelian squares in circular words Fraenkel, Simpson and Paterson \cite{FSP97} found the minimum when $n\equiv 2\pmod 4$; the odd case is discussed in Section~\ref{sec:types}. For linear binary words the minimum number of distinct abelian squares is conjectured by Fici and Saarela to be $\fl{n/4}$, and \cite{FMMS26} proves this in special cases; maximal numbers of abelian squares were studied in \cite{FM15,FMS17}, and \cite{FP23} surveys the area. We prove the following theorem; the remaining problems of the survey are discussed in Sections~\ref{sec:types} and~\ref{sec:others}.
 
 \begin{theorem}\label{thm:main}
 Let $n\ge 1$. Every binary circular word $w$ of length $n$ satisfies $D(w)\ge\fl{(n-1)/2}$. Equality holds if and only if $w$ is a conjugate of one of the following words:
@@ -244,9 +245,116 @@ Conversely let $D(w)=\fl{(n-1)/2}$. By Proposition~\ref{prop:equality}, $w$ is r
 \emph{$n$ odd.} Then $N=n-1$. If only one letter occurs, $w$ is $a^n$ or $b^n$. Otherwise \eqref{eq:N} gives $\sum_k|C_a(k)|+\sum_k|C_b(k)|=(t_a-1)+(t_b-1)+1$ with $\sum_k|C_\ell(k)|\ge t_\ell-1$ for both letters. So one letter $\ell$ is tight, and $\sum_k|C_{\lb}(k)|\le t_{\lb}$. By Theorem~\ref{thm:classify}, $w$ is a conjugate of $\ell^t\lb^{\,n-t}$ with $t=t_\ell$ odd, since $t<n$ and $n$ is odd. Then $n-t=2h$ with $h\ge 1$. If $t=1$, then $w$ is a conjugate of $\lb^{\,n-1}\ell$. If $t\ge 3$, Lemma~\ref{lem:fat} gives $|C_{\lb}(h)|\ge 3$ with $1\le h<2h=t_{\lb}$, and with Lemma~\ref{lem:column}, $\sum_k|C_{\lb}(k)|\ge(t_{\lb}-1)+2>t_{\lb}$, a contradiction.
 \end{proof}
 
+\section{Non-equivalent abelian squares in circular words of odd length}\label{sec:types}
+
+Two abelian squares are \emph{equivalent} \cite{FSP97,Sim18} when they have the same length and the same number of letters $a$. The \emph{type} of a square $W(i,m)$ is the pair $(m,c_a(i,m))$, and for $1\le m\le n/2$ we let $z_m(w)$ be the number of types of the squares $W(i,m)$, $i\in\Z$. Thus
+\[
+N(w)=\sum_{m=1}^{\fl{n/2}}z_m(w)
+\]
+is the number of non-equivalent abelian squares among the factors of $w$, and $N(w)\le D(w)$ since the type of a square is determined by the factor. Fraenkel, Simpson and Paterson \cite{FSP97} proved that a circular word with at most $k$ non-equivalent abelian squares has length at most $4k+2$, the bound being attained by $(ab)^{2k+1}$ only; hence $N(w)\ge\fl{(n+1)/4}$ for every circular word of length $n$, and this is sharp when $n\equiv 2\pmod 4$. In this section $n$ is odd. Then $N(w)\le D(w)$ and Theorem~\ref{thm:main} give $N(w)\le (n-1)/2$ for the words $a^n$ and $a^{n-1}b$, so the minimum of $N$ over the words of odd length $n$ is at most $(n-1)/2$. We collect what we can prove about the lower bound and state the expected answer as a conjecture; all the computations referred to are performed by the programs \texttt{odd\_circular\_types.c} and \texttt{linear\_minima.c} of the ancillary files.
+
+For $i\in\Z$ and $1\le m\le n-1$ put $\delta_m(i)=c_a(i+m,m)-c_a(i,m)$, so that $W(i,m)$ is a square exactly when $\delta_m(i)=0$. Since $i\mapsto i+m$ permutes the residues modulo $n$,
+\begin{equation}\label{eq:deltasum}
+\sum_{i=0}^{n-1}\delta_m(i)=0,
+\end{equation}
+and writing $[x_s=a]$ for $1$ if $x_s=a$ and $0$ otherwise,
+\begin{equation}\label{eq:deltastep}
+\delta_m(i+1)-\delta_m(i)=[x_i=a]-2[x_{i+m}=a]+[x_{i+2m}=a]\in\{-2,-1,0,1,2\}.
+\end{equation}
+
+\begin{lemma}[jump]\label{lem:jump}
+Let $1\le m$ with $2m<n$, and suppose that no $W(i,m)$ is a square. Then there are $i$ and $i'$ with
+\begin{align*}
+x_i=x_{i+2m}=a,\quad x_{i+m}=b,\quad c_a(i+1,m)=c_a(i+m,m),\\
+x_{i'}=x_{i'+2m}=b,\quad x_{i'+m}=a,\quad c_a(i'+1,m)=c_a(i'+m,m).
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+By assumption $\delta_m$ has no zero, and by \eqref{eq:deltasum} it takes a negative and a positive value. Going once around the circle we find $i$ with $\delta_m(i)<0<\delta_m(i+1)$ and $i'$ with $\delta_m(i')>0>\delta_m(i'+1)$. At $i$ the step \eqref{eq:deltastep} is at least $2$, so it equals $2$, $\delta_m(i)=-1$, $\delta_m(i+1)=1$, $x_i=x_{i+2m}=a$ and $x_{i+m}=b$. Then $c_a(i+1,m)=c_a(i,m)-[x_i=a]+[x_{i+m}=a]=c_a(i,m)-1=c_a(i+m,m)$. The position $i'$ is treated in the same way, with the step equal to $-2$: $x_{i'}=x_{i'+2m}=b$, $x_{i'+m}=a$, $\delta_m(i')=1$ and $c_a(i'+1,m)=c_a(i',m)+1=c_a(i'+m,m)$.
+\end{proof}
+
+In words: an empty half-length $m$ forces the two patterns $aXbYa$ and $bX'aY'b$ in $w$, with $|X|=|Y|=|X'|=|Y'|=m-1$, $|X|_a=|Y|_a$ and $|X'|_a=|Y'|_a$. Such a pattern produces squares of smaller half-lengths.
+
+\begin{lemma}[descent]\label{lem:descent}
+Let $m\ge 2$ and let $i$ satisfy $x_i=x_{i+2m}=a$, $x_{i+m}=b$ and $c_a(i+1,m-1)=c_a(i+m+1,m-1)=e$. Then either $(m-1,e)$ is the type of a square, or $x_{i+1}=x_{i+2m-1}=a$ and $i+1$ satisfies the same hypotheses with $m-1$ and $e-1$ in place of $m$ and $e$. The statement with the letters $a$ and $b$ exchanged, and $e$ counting the letters $b$, holds as well.
+\end{lemma}
+
+\begin{proof}
+If $x_{i+2m-1}=b$ then $W(i+1,m-1)$ has halves $x_{i+1}\cdots x_{i+m-1}$ and $x_{i+m}\cdots x_{i+2m-2}$ with $e$ and $c_a(i+m+1,m-1)-[x_{i+2m-1}=a]=e$ letters $a$ (recall $x_{i+m}=b$), so it is a square of type $(m-1,e)$. If $x_{i+1}=b$ then $W(i+2,m-1)$ has halves $x_{i+2}\cdots x_{i+m}$ and $x_{i+m+1}\cdots x_{i+2m-1}$ with $e-[x_{i+1}=a]=e$ and $e$ letters $a$, again a square of type $(m-1,e)$. Otherwise $x_{i+1}=x_{i+2m-1}=a$; then $x_{i+1}=a$, $x_{(i+1)+(m-1)}=x_{i+m}=b$, $x_{(i+1)+2(m-1)}=x_{i+2m-1}=a$, and $c_a(i+2,m-2)=e-1=c_a(i+m+1,m-2)$ because the first window lost the letter $x_{i+1}=a$ and the second lost $x_{i+2m-1}=a$. The second statement follows by complementation.
+\end{proof}
+
+Starting from the pattern of Lemma~\ref{lem:jump} and applying Lemma~\ref{lem:descent} repeatedly, an empty half-length $m$ yields a square of some type $(m-1-r,e-r)$ with $0\le r\le m-2$, or else the factor $a^mba^m$, which contains the squares $a^{2j}$ for $2j\le m$; and likewise with $b$. The squares so obtained need not be new, and this is why the following two propositions cover only the smallest half-lengths and the words with two runs. Here a \emph{run} is a maximal factor of the circular word consisting of one letter.
+
+\begin{proposition}\label{prop:small}
+Let $n\ge 5$ be odd. Then $z_1(w)\ge 1$ and $z_1(w)+z_2(w)\ge 2$ for every circular word $w$ of length $n$.
+\end{proposition}
+
+\begin{proof}
+Since $n$ is odd, $w$ is not a conjugate of $(ab)^{n/2}$, so $x_i=x_{i+1}$ for some $i$ and $W(i,1)$ is a square: $z_1(w)\ge 1$. Suppose $z_1(w)=1$; by complementation we may assume that $bb$ is not a factor, so each run of $b$ has length $1$. If $t_b=0$ then $w=a^n$, $n\ge 5$, and $aaaa$ gives $z_2(w)\ge 1$. Let $t_b\ge 1$. A run of $a$ of length at least $4$ gives the square $aaaa$ of type $(2,2)$. A run of $a$ of length exactly $2$ lies between two letters $b$, which gives the factor $baab$, a square of type $(2,1)$. A run of $a$ of length $1$ is a factor $bab$, and since the letter after the second $b$ is $a$ (if $t_b=1$ this second $b$ is the first one and $n=2$, which is excluded), $w$ has the factor $baba$, a square of type $(2,1)$. If none of these happens, every run of $a$ has length $3$ and $n=4t_b$ is even, a contradiction.
+\end{proof}
+
+\begin{proposition}\label{prop:tworuns}
+Let $n=p+q$ be odd with $p,q\ge 1$, and let $r$ be the odd one of $p$ and $q$. Then
+\[
+N(a^pb^q)=\frac{n-1}{2}+\frac{r-1}{2}.
+\]
+In particular $N(a^pb^q)\ge(n-1)/2$, with equality exactly for $a^{n-1}b$ and $ab^{n-1}$.
+\end{proposition}
+
+\begin{proof}
+By complementation we may assume that $p$ is even and $q$ is odd. Fix $m$ with $2m\le n-1$ and consider the factor $W(i,m)$, of length $2m<n$. The circular word $a^pb^q$ has two run boundaries. If $W(i,m)$ contains no boundary it is $a^{2m}$ (possible when $2m\le p$) or $b^{2m}$ (when $2m\le q$), of types $(m,m)$ and $(m,0)$. If it contains exactly one boundary it is $a^sb^{2m-s}$ or $b^sa^{2m-s}$ with $1\le s\le 2m-1$; its halves contain $\min(s,m)$ and $\max(s-m,0)$ letters of the first kind, which are never equal, so it is not a square. If it contains both boundaries, it contains one of the two runs entirely, and since $2m<n$ not both. Suppose it contains the run $b^q$: $W(i,m)=a^sb^qa^{s'}$ with $s,s'\ge 1$ and $s+s'=2m-q$. If $s\ge m$ the halves contain $m$ and $s+s'-m=m-q<m$ letters $a$. If $s<m$ and $m-s>q$ the halves are $a^sb^qa^{m-s-q}$ and $a^m$, with $m-q<m$ letters $a$ in the first. If $s<m$ and $m-s\le q$ the halves are $a^sb^{m-s}$ and $b^{q-m+s}a^{s'}$, a square exactly when $s=s'$, that is $2s=2m-q$, impossible since $q$ is odd. Suppose it contains the run $a^p$: $W(i,m)=b^sa^pb^{s'}$ with $s,s'\ge 1$, $s+s'=2m-p$. As before the halves have the same number of letters $a$ only when $s<m$, $m-s\le p$ and $m-s=p-(m-s)$, that is $s=s'=m-p/2$; this needs $m\ge p/2+1$, and then $s=s'\le p$ because $m\le(n-1)/2=(p+q-1)/2$ gives $m-p/2\le(q-1)/2\le q$ and also $s\le q$; so for every $m$ with $p/2+1\le m\le(n-1)/2$ there is exactly one such type, $(m,p/2)$. Altogether the types of half-length $m$ are: $(m,m)$ when $m\le p/2$; $(m,p/2)$ when $m\ge p/2+1$; and $(m,0)$ when $m\le(q-1)/2$. The first two lists provide one type for each $m\in[1,(n-1)/2]$, and the third provides $(q-1)/2$ further types, distinct from the others because $p\ge 2$. This gives the formula with $r=q$. Equality $N=(n-1)/2$ means $q=1$.
+\end{proof}
+
+The alternating word $(ab)^{(n-1)/2}a$ also has $N=(n-1)/2$ (a computation, confirmed for $n\le 25$), and for $n\le 13$ every word with $N=(n-1)/2$ other than $a^n$ and its complement has one letter isolated (there are $4$, $7$, $6$, $7$ such words for $n=7,9,11,13$ up to conjugation and complement). So, unlike the distinct count of Theorem~\ref{thm:main}, the minimum of $N$ in odd length is attained by a large family of words. We expect it to be the same number.
+
+\begin{conjecture}\label{conj:odd}
+Let $n$ be odd. Every binary circular word $w$ of length $n$ satisfies $N(w)\ge(n-1)/2$; more precisely
+\[
+z_1(w)+z_2(w)+\cdots+z_k(w)\ge k\qquad\text{for }1\le k\le\frac{n-1}{2}.
+\]
+\end{conjecture}
+
+Both statements have been verified for every odd $n\le 27$; Proposition~\ref{prop:small} is the case $k\le 2$, Proposition~\ref{prop:tworuns} the case of two runs. Together with Theorem~\ref{thm:main} the conjecture says that for odd $n$ the least number of non-equivalent abelian squares in a circular word equals the least number of distinct ones, $(n-1)/2$, whereas \cite{FSP97} gives $\fl{(n+1)/4}$. The conjecture cannot be read as a statement about each half-length separately: $aababbbbb$ has no square of half-length $3$, and $a^{k+1}ba^kb^{n-2k-2}$ none of half-length $m$ for $k+2\le m\le(n-3)/2$ (a computation for $k\le 6$, $n\le 29$), the deficit being made up by the types $(m,0)$ and $(m,m)$ of the long runs at small half-lengths. Nor does the inequality survive for even $n$: $z_1=0$ for $(ab)^{n/2}$, and $z_3=z_4=0$ for $a^3b^3a^3b^5$, which has only three types of half-length at most four.
+
+
+\section{The other problems of the survey}\label{sec:others}
+
+Simpson's survey \cite{Sim18} lists six further problems on abelian squares. We record their status after a search of the literature up to October 2026, and we prove what we can about the last one.
+
+\subsection{The linear minima}\label{ssec:linear}
+Fici and Saarela conjectured that a binary word of length $n$ contains at least $\fl{n/4}$ distinct abelian squares, with equality for $n=4k+3$ only at $a^{2k+1}ba^{2k+1}$ and its complement, and Fraenkel, Simpson and Paterson conjectured the same bound for non-equivalent abelian squares, with the further extremal words $(ab)^{2k+1}a$ (Conjectures~0.4 and~0.5 of \cite{Sim18}). Fazekas, Mammoliti, Merca\c{s} and Simpson \cite{FMMS26} prove the bound for the words in which some letter occurs at most three times and extend it to Conjecture~4 of \cite{FMMS26}: a word with exactly $\fl{n/4}$ distinct abelian squares contains only the squares $a^{2j}$ and $b^{2j}$. The program \texttt{linear\_minima.c} shows the following. For every $n\le 24$ the least number of distinct, and the least number of non-equivalent, abelian squares in a binary word of length $n$ is $\fl{n/4}$. The equality clause of Conjecture~4 of \cite{FMMS26} fails for $n=4$, where $abab$ has exactly $\fl{4/4}=1$ abelian square, which is not of the form $a^{2j}$ or $b^{2j}$ (the word appears in Table~1 of \cite{FMMS26}); for $5\le n\le 24$ the clause holds. We have no proof of the linear conjectures, and the circular results do not imply them: a linear word has at most the abelian squares of the circular word obtained by closing it, and closing $a^{2k+1}ba^{2k+1}$ gives $a^{4k+2}b$, with $D=2k+1$ by Theorem~\ref{thm:main}, while the linear word has only $k$.
+
+\subsection{Conjecture 0.1 (Fici and Mignosi)}
+The conjecture that the number of distinct abelian squares in a word of length $n$ over any alphabet is at most the maximum over binary words is claimed in the preprint \cite{Tri19}; the argument given there is a sketch whose steps we could not complete, and we regard the conjecture as open.
+
+\subsection{Conjecture 0.2 (Kucherov, Ochem and Rao)}
+The conjecture that a word of length $n$ has $O(n^{3/2})$ non-equivalent abelian squares is open. Kociumaka, Radoszewski, Rytter and Wale\'n \cite{KRRW16} prove that the maximum is $\Omega(n^{3/2})$ and $O(n^{11/6})$, and that the maximum number of distinct abelian squares is $\Theta(n^2)$. We have nothing to add.
+
+\subsection{Conjecture 0.3 (M\"akel\"a)}
+The conjecture that some infinite ternary word has no abelian square other than $aa$, $bb$, $cc$ is open. Rao and Rosenfeld \cite{RR15} show that long abelian squares can be avoided over three letters and, on the binary side, that abelian cubes of abelian period at least $2$ cannot be avoided; see \cite{FP23} for the state of the question. We have nothing to add.
+
+\subsection{Question 0.7 (occurrences of abelian squares)}\label{ssec:occ}
+Let $T(n)$ be the least number of occurrences of abelian squares in a binary word of length $n$, where an occurrence is a pair $(i,m)$ such that $x_i\cdots x_{i+2m-1}$ is an abelian square. Simpson asked for $T(n)$; his table, continued as sequence A268084 of \cite{OEIS}, gives $T(n)$ for $n\le 60$, with $T(20)=20$, $T(40)=52$ and $T(60)=96$. The program \texttt{total\_occurrences.c} recomputes $T(n)$ for $n\le 28$ and agrees with the sequence.
+
+\begin{theorem}\label{thm:occ}
+\begin{enumerate}
+\item[(i)] $T(n+n')\ge T(n)+T(n')$ for all $n,n'\ge 1$. Consequently $T(n)/n$ converges to $\tau=\sup_{n\ge 1}T(n)/n\in[1.6,\infty]$.
+\item[(ii)] $T(n)\le\sum_{m=1}^{\fl{n/2}}(n-2m+1)\binom{2m}{m}4^{-m}<n^{3/2}$ for all $n\ge 1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Let $w$ be a word of length $n+n'$ with $T(n+n')$ occurrences. Its prefix of length $n$ and its suffix of length $n'$ have at least $T(n)$ and $T(n')$ occurrences, and an occurrence inside the prefix is not an occurrence inside the suffix. By Fekete's lemma for superadditive sequences, $T(n)/n$ converges to $\sup_n T(n)/n$, which is at least $T(60)/60=1.6$.
+
+(ii) Let $w$ be a uniformly random binary word of length $n$. For $1\le m\le n/2$ and $0\le i\le n-2m$ the numbers of letters $a$ in $x_i\cdots x_{i+m-1}$ and in $x_{i+m}\cdots x_{i+2m-1}$ are independent binomial variables with parameters $m$ and $1/2$, so the probability that $(i,m)$ is an occurrence is $\sum_j\binom{m}{j}^24^{-m}=\binom{2m}{m}4^{-m}$. The expected number of occurrences is the sum in (ii), and some word has at most the expected number. Finally $\binom{2m}{m}4^{-m}\le(\pi m)^{-1/2}$ and $\sum_{m\le n/2}m^{-1/2}<2\sqrt{n/2}$, so the sum is less than $n\sqrt{2n/\pi}<n^{3/2}$.
+\end{proof}
+
+The values of \cite{OEIS} suggest that $T(n)/n$ keeps growing; whether $\tau$ is finite, that is, whether some infinite binary word has only linearly many occurrences of abelian squares in its prefixes, is open. A positive answer would need words that are far from random, since a random word has about $0.53\,n^{3/2}$ occurrences.
+
 \section{Formal verification}\label{sec:lean}
 
-Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20}, version~4.34.1, and the formal proofs are checked by the Lean kernel. Words are lists over a two-letter alphabet, and the definitions follow Section~\ref{sec:intro} literally: an abelian square is a word $uv$ with $u$ nonempty and the same number of each letter in $u$ and $v$; the factors of a circular word $w$ of length $n$ are the prefixes of length $L$, $1\le L\le n$, of its $n$ rotations; and $D(w)$ is the number of distinct factors that are abelian squares. The formal statements are the following. For every $n\ge 1$ the least value of $D$ on the words of length $n$ is $\fl{(n-1)/2}$. A word of odd length, and a word of even length, attains this value exactly when it is a conjugate of one of the words in (a), respectively (b), of Theorem~\ref{thm:main}. Part~(a) of Conjecture~0.6 holds, and part~(b), stated literally, is false. Finally $D(ababab)=2$, and $ababab$ is not a conjugate of $a^kb^{6-k}$ or of its complement for any $k$. The repository verification of the pinned source checks these statements; the verification record accompanying this edition identifies the commit and successful run. The proofs depend only on the axioms of Lean's logic, namely propositional extensionality, choice and the soundness of quotients; they contain no unproved step and add no axiom.
+Theorem~\ref{thm:main} and Corollary~\ref{cor:simpson} are formalized in Lean~4 \cite{MU21} with Mathlib \cite{Mathlib20}, version~4.34.1, and the formal proofs are checked by the Lean kernel. Words are lists over a two-letter alphabet, and the definitions follow Section~\ref{sec:intro} literally: an abelian square is a word $uv$ with $u$ nonempty and the same number of each letter in $u$ and $v$; the factors of a circular word $w$ of length $n$ are the prefixes of length $L$, $1\le L\le n$, of its $n$ rotations; and $D(w)$ is the number of distinct factors that are abelian squares. The formal statements are the following. For every $n\ge 1$ the least value of $D$ on the words of length $n$ is $\fl{(n-1)/2}$. A word of odd length, and a word of even length, attains this value exactly when it is a conjugate of one of the words in (a), respectively (b), of Theorem~\ref{thm:main}. Part~(a) of Conjecture~0.6 holds, and part~(b), stated literally, is false. Finally $D(ababab)=2$, and $ababab$ is not a conjugate of $a^kb^{6-k}$ or of its complement for any $k$. The repository verification of the pinned source checks these statements; the verification record accompanying this edition identifies the commit and successful run. The proofs depend only on the axioms of Lean's logic, namely propositional extensionality, choice and the soundness of quotients; they contain no unproved step and add no axiom. The results of Sections~\ref{sec:types} and~\ref{sec:others} are not formalized.
 
 Independent computations confirm Theorem~\ref{thm:main} on every binary circular word of length at most $22$ and on one word of each necklace class up to length $28$, and they confirm each lemma of Sections~\ref{sec:lower} and~\ref{sec:tight} on every word of length at most $16$.
 
@@ -255,7 +363,7 @@ Claude (Anthropic) assisted with the original proofs, Lean formalization, comput
 
 \section*{Data availability}
 \begingroup\raggedright
-Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.2.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}; the earlier preprint is Hexagon \href{https://hexagonmath.org/2610.00473v1}{2610.00473v1}.\par
+Deep Bhattacharjee computed the Lean formalization and the Julia, C, C++, shell and Python computations with the help of AI assistance (Claude, Anthropic). The Lean formalization of the proofs in this paper and the programs are in release~v2.3.0 of the repository \url{https://github.com/creelie/literate-octo-lamp}, \url{\releaseURL}; the programs of Sections~\ref{sec:types} and~\ref{sec:others} are the ancillary files \texttt{odd\_circular\_types.c}, \texttt{linear\_minima.c} and \texttt{total\_occurrences.c}; the earlier preprint is Hexagon \href{https://hexagonmath.org/2610.00473v1}{2610.00473v1}.\par
 \endgroup
 
 \section*{Competing interests}
@@ -264,7 +372,7 @@ None.
 \section*{Funding}
 None.
 
-\begin{thebibliography}{8}
+\begin{thebibliography}{12}
 
 \bibitem{Sim18}
 J.~Simpson, Solved and unsolved problems about abelian squares, preprint (2018), \href{https://arxiv.org/abs/1802.04481v1}{arXiv:1802.04481v1}.
@@ -289,6 +397,18 @@ L.~de~Moura, S.~Ullrich, The Lean~4 theorem prover and programming language, in:
 
 \bibitem{Mathlib20}
 The mathlib Community, The Lean mathematical library, in: Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), ACM, 2020, pp.~367--381, \href{https://doi.org/10.1145/3372885.3373824}{doi:10.1145/3372885.3373824}.
+
+\bibitem{Tri19}
+S.~Triki, Abelian-square factors and binary words, preprint (2019), \href{https://arxiv.org/abs/1907.05369v1}{arXiv:1907.05369v1}.
+
+\bibitem{KRRW16}
+T.~Kociumaka, J.~Radoszewski, W.~Rytter, T.~Wale\'n, Maximum number of distinct and nonequivalent nonstandard squares in a word, Theoret. Comput. Sci. 648 (2016) 84--95, \href{https://doi.org/10.1016/j.tcs.2016.08.010}{doi:10.1016/j.tcs.2016.08.010}.
+
+\bibitem{RR15}
+M.~Rao, M.~Rosenfeld, Avoidability of long $k$-abelian repetitions, Math. Comp. 85 (2016) 3051--3060, \href{https://doi.org/10.1090/mcom/3085}{doi:10.1090/mcom/3085}.
+
+\bibitem{OEIS}
+OEIS Foundation Inc., The On-Line Encyclopedia of Integer Sequences, sequence A268084, \url{https://oeis.org/A268084}, accessed 27 October 2026.
 
 \end{thebibliography}
 

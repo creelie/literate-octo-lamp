@@ -11,6 +11,8 @@
 #                                              splits, Parikh vectors), n <= 12
 #   Julia   verification/julia/verify_lemmas.jl    every lemma of the proof, n <= 16
 #                                              (if julia is on PATH or $JULIA is set)
+#   C       verification/c/{odd_circular_types,linear_minima,total_occurrences}.c
+#                                              the programs of Sections 5 and 6 of the paper
 #   Lean    verification/lean                  the theorems for every n, over Mathlib v4.34.1
 #                                              (if lake is on PATH; LEAN=0 skips it)
 #
@@ -32,6 +34,24 @@ c++ -O2 -Wall -std=c++17 -o "$BUILD/necklaces" "$V/cpp/necklaces.cpp" || fail "c
   && ok "C: every binary circular word of length n <= 22" || fail "C (see build/c.txt)"
 "$BUILD/necklaces" > "$BUILD/cpp.txt" 2>&1 && grep -q '^ALL OK' "$BUILD/cpp.txt" \
   && ok "C++: every necklace of length n <= 28" || fail "C++ (see build/cpp.txt)"
+
+echo "== C: the programs of Sections 5 and 6 of the paper"
+cc -O2 -Wall -o "$BUILD/odd_circular_types" "$V/c/odd_circular_types.c" || fail "compile odd_circular_types.c"
+cc -O2 -Wall -o "$BUILD/linear_minima" "$V/c/linear_minima.c" || fail "compile linear_minima.c"
+cc -O2 -Wall -o "$BUILD/total_occurrences" "$V/c/total_occurrences.c" || fail "compile total_occurrences.c"
+: > "$BUILD/odd.txt"; oddok=1
+for n in 3 5 7 9 11 13 15 17 19 21; do
+  "$BUILD/odd_circular_types" $n >> "$BUILD/odd.txt" 2>&1 || oddok=0
+done
+[ $oddok = 1 ] && [ "$(grep -c 'violations: bound 0, prefix form 0' "$BUILD/odd.txt")" = 10 ] \
+  && ok "odd_circular_types: Conjecture 5.5 and its prefix form for odd n <= 21" || fail "odd_circular_types (see build/odd.txt)"
+"$BUILD/linear_minima" 20 > "$BUILD/linear.txt" 2>&1 \
+  && [ "$(awk '{split($2,a,"=");split($3,b,"=");split($4,c,"="); if(a[2]!=b[2]||a[2]!=c[2])bad=1} END{print bad+0}' "$BUILD/linear.txt")" = 0 ] \
+  && [ "$(grep -c 'non-trivial square: 0$' "$BUILD/linear.txt")" = 18 ] \
+  && ok "linear_minima: floor(n/4) distinct and non-equivalent for n <= 20; Conjecture 4 of FMMS fails only at n = 4" || fail "linear_minima (see build/linear.txt)"
+"$BUILD/total_occurrences" 1 20 > "$BUILD/occ.txt" 2>&1 \
+  && [ "$(awk '{split($2,a,"="); printf "%s,", a[2]}' "$BUILD/occ.txt")" = "0,0,0,1,2,3,4,4,5,6,7,8,10,11,12,14,15,17,18,20," ] \
+  && ok "total_occurrences: T(n) for n <= 20 agrees with OEIS A268084" || fail "total_occurrences (see build/occ.txt)"
 
 echo "== Shell"
 bash "$V/shell/check_small.sh" > "$BUILD/sh.txt" 2>&1 && grep -q '^ALL OK' "$BUILD/sh.txt" \

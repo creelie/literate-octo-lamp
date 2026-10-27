@@ -1,6 +1,6 @@
 {
   "title": "The minimum number of distinct abelian squares in a binary circular word",
-  "description": "<p>Sharp lower bound and complete extremal classification for distinct abelian-square factors of binary circular words, for every positive length. This proves the odd case and corrects the even extremal list in Simpson's Conjecture 0.6.</p><p>Version 2.2.0 adds the amsart Hexagon replacement and journal preparation package under [PAPER] package/. The mathematical proof body and Lean/checking sources are preserved from commit a08e1ce81c2f8c863844473f5ad56e02ac9cc212. Verification scope and existing successful CI evidence are recorded. The separate linear-word conjecture is not claimed. The human-understanding declaration remains the existing Hexagon declaration.</p>",
+  "description": "<p>Sharp lower bound and complete extremal classification for distinct abelian-square factors of binary circular words, for every positive length. This proves the odd case and corrects the even extremal list in Simpson's Conjecture 0.6.</p><p>Version 2.2.0 adds the amsart Hexagon replacement and journal preparation package under [PAPER] package/. The mathematical proof body and Lean/checking sources are preserved from commit a08e1ce81c2f8c863844473f5ad56e02ac9cc212. Verification scope and existing successful CI evidence are recorded. The separate linear-word conjecture is not claimed. The human-understanding declaration remains the existing Hexagon declaration.</p><p>Version 2.3.0 adds Sections 5 and 6 to the paper, reviewing the other problems of Simpson's survey: lemmas, a two-run formula and a conjecture (verified to length 27 by anc/odd_circular_types.c) on the least number of non-equivalent abelian squares in an odd-length circular word; the status of the linear-word minimum floor(n/4) (verified to length 24 by anc/linear_minima.c, not proved); and a theorem that the least number of occurrences of abelian squares in a binary word of length n divided by n has a limit, at least 1.6, while the count is below n^{3/2} (anc/total_occurrences.c). The circular-word theorem and its Lean formalisation are unchanged; the new sections are not formalised.</p>",
   "upload_type": "software",
   "license": "mit",
   "access_right": "open",
@@ -26,5 +26,5 @@
     }
   ],
   "language": "eng",
-  "version": "2.2.0"
+  "version": "2.3.0"
 }

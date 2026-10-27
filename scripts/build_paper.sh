@@ -3,6 +3,7 @@
 #
 #   dist/SimpsonCircularAbelianSquares_final2.pdf             the paper
 #   dist/SimpsonCircularAbelianSquares_final2-tex.zip         LaTeX source with the figures as PNG
+#                                                             and the programs of Sections 5 and 6 in anc/
 #   dist/SimpsonCircularAbelianSquares_final2-arxiv.tar.gz    the same source as an arXiv tarball
 #   preprintSimpsonCircularAbelianSquares/SimpsonCircularAbelianSquares.pdf
 #                                                             the paper (the only file there)
@@ -51,13 +52,14 @@ trap 'rm -rf "$STAGE"' EXIT
 
 echo "== tex zip and arXiv tarball"
 SRC="$STAGE/${NAME}_final2-tex"
-mkdir -p "$SRC/figures"
-cp paper/main.tex paper/elsarticle.cls "$SRC/"
+mkdir -p "$SRC/figures" "$SRC/anc"
+cp paper/main.tex "$SRC/"
 cp paper/figures/*.png "$SRC/figures/"
+cp verification/c/odd_circular_types.c verification/c/linear_minima.c verification/c/total_occurrences.c "$SRC/anc/"
 ( cd "$STAGE" && zip -qrX "${NAME}_final2-tex.zip" "${NAME}_final2-tex" )
 mv "$STAGE/${NAME}_final2-tex.zip" dist/
 cp "dist/${NAME}_final2-tex.zip" "paper/paper2/${NAME}-tex.zip"
-tar -czf "dist/${NAME}_final2-arxiv.tar.gz" -C "$SRC" main.tex elsarticle.cls figures
+tar -czf "dist/${NAME}_final2-arxiv.tar.gz" -C "$SRC" main.tex figures anc
 
 echo "== $MASTER"
 mkdir -p "$STAGE/master/Master$NAME"
